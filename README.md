@@ -1,1 +1,1 @@
-# HiremeNOW_Front-end
+# HireMeNOW_Front-end
