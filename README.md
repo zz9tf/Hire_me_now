@@ -1,6 +1,18 @@
-# Getting Started with Create React App
+# Hire me NOW - Front-end
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Our platform is designed to help job seekers stand out in a competitive job market. With our comprehensive tools and resources, you can easily build a winning resume, create a customized cover letter, improve your writing skills, and even translate your resume into different languages. Plus, the more you use our platform, the more personalized and effective your results become. Say goodbye to the frustration of job hunting and hello to a brighter future with our innovative tools. We're excited to share our code with you and help make your job search easier and more successful.
+  
+## Key Features
+
+1. Resume Builder: A tool that helps users create a professional and competitive resume that showcases their skills, experiences, and accomplishments.
+
+2. Cover Letter Generator: A feature that offers a wide range of cover letter templates and guides to help users create a customized and compelling cover letter that highlights their qualifications and aligns with the job requirements.
+
+3. Writing Expression Improvement Tools: A writing modify tools that effectively helps users enhance their documents' expression in a professional and competitive manner.
+
+4. Resume Translation: A feature that allows users to translate their resume into different languages, which is useful for job seekers who are applying for jobs in international or multilingual environments.
+
+5. Personalization: A feature that customizes the website's tools and resources based on the user's input and behavior. The more users interact with the website, the more personalized and effective their results become.
 
 ## Available Scripts
 
