@@ -1,0 +1,67 @@
+.navbar {
+    font-family: 'Istok Web';
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color:white;
+    color: #fff;
+  }
+  
+  .navbar__left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar__logo img {
+    height: 30px;
+    margin-left:40px;
+    margin-top:2px
+  }
+  
+  .navbar__beta button {
+    background-color: #fff;
+    color: rgba(76, 180, 180, 1);
+    padding: 0px 4px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-left: 2px;
+    border-color: #D4F4EF;
+    cursor: pointer;
+  }
+  
+  .navbar__right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar__login button {
+    background-color: #fff;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .navbar__contact button {
+    background-color: transparent;
+    color: #333;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right:50px
+  }
+
+
+.navbar__login button:hover,
+.navbar__contact button:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-decoration-color:rgba(212, 244, 239, 1) ;
+}
+
+
+  
