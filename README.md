@@ -21,15 +21,6 @@ Our platform is designed to help job seekers stand out in a competitive job mark
 ├── package.json
 ├── public
 │   ├── favicon.ico
-│   ├── img
-│   │   ├── Interview_icon.png
-│   │   ├── Translate_icon.png
-│   │   ├── coverletter_icon.png
-│   │   ├── decoration1.png
-│   │   ├── decoration2.png
-│   │   ├── logo192.png
-│   │   ├── logo512.png
-│   │   └── writinghelper_icon.png
 │   ├── index.html
 │   ├── manifest.json
 │   └── robots.txt
@@ -53,6 +44,7 @@ Our platform is designed to help job seekers stand out in a competitive job mark
     ├── logoGroup.png
     ├── reportWebVitals.js
     └── setupTests.js
+
 ```
 
 
