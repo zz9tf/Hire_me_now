@@ -14,6 +14,40 @@ Our platform is designed to help job seekers stand out in a competitive job mark
 
 5. Personalization: A feature that customizes the website's tools and resources based on the user's input and behavior. The more users interact with the website, the more personalized and effective their results become.
 
+## Current Structure
+```
+├── README.md
+├── package-lock.json
+├── package.json
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── manifest.json
+│   └── robots.txt
+└── src
+    ├── App.js
+    ├── App.test.js
+    ├── LOGO.png
+    ├── LOGO_text.png
+    ├── components
+    │   ├── Coffee.js
+    │   ├── Contact.js
+    │   ├── HomeCarousel.js
+    │   └── Navbar.js
+    ├── css
+    │   ├── App.css
+    │   ├── Coffee.css
+    │   ├── Contact.css
+    │   └── Navbar.css
+    ├── index.css
+    ├── index.js
+    ├── logoGroup.png
+    ├── reportWebVitals.js
+    └── setupTests.js
+
+```
+
+
 ## Available Scripts
 
 In the project directory, you can run:
