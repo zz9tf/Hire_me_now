@@ -20,6 +20,7 @@ Our platform is designed to help job seekers stand out in a competitive job mark
 ├── package-lock.json
 ├── package.json
 ├── public
+├── ├── img
 │   ├── favicon.ico
 │   ├── index.html
 │   ├── manifest.json
