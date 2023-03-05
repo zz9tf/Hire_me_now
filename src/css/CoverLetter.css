@@ -1,0 +1,72 @@
+.cl--container {
+  display: flex;
+  margin-top: 50px; /* Add margin-top */
+  padding: 20px; /* Add some padding */
+}
+
+.cl--column {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.cl--form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.cl--form-group label {
+  margin-bottom: 5px;
+}
+
+.cl--form-group input,
+.cl--form-group textarea {
+  height: 30px;
+  border: 1px solid #d5d4d8;
+  border-radius: 5px;
+  box-shadow: 0 0.5px 1px #4cb4b4;
+}
+
+.cl--button {
+  background-color: #4cb4b4;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  width: 40%;
+  align-self: center;
+}
+
+.cl--container button:hover {
+  background-color: white;
+  color: #4cb4b4;
+  border: 1px solid #4cb4b4;
+}
+
+.cl-preview {
+  height: 500px;
+  padding: 20px;
+  margin-top: -60px;
+}
+
+.cl-title {
+  text-align: center;
+  background-color: #4cb4b4;
+  color: white;
+  margin-bottom: 0px;
+  border-radius: 5px;
+}
+
+.cover-letter-container {
+  height: 80%;
+  overflow: scroll;
+  border: 1px solid #4cb4b4;
+  box-shadow: 0 2px 4px #4cb4b4;
+  border-radius: 5px;
+}
