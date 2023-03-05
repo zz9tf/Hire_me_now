@@ -6,6 +6,7 @@ import Contact from './components/Contact'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import CoverLetter from './components/CoverLetter'
 import SignUp from './components/SignUp'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
+    <Footer></Footer>
     </div>
   )
 }
