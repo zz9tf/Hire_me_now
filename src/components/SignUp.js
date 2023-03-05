@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import '../css/SignUp.css'
 import { FaGoogle } from 'react-icons/fa'
+import '../css/SignUp.css'
+import AdvertiseSection from './AdvertiseSection'
 
 const SignUp = () => {
   const [inputEmail, setInputEmail] = useState('')
@@ -88,68 +89,75 @@ const SignUp = () => {
   }, [isSigningUp, userAlreadyExists])
 
   return (
-    <div className="signup--container">
-      <div className="signup--column">TEST</div>
-      <div className="signup--column">
-        <h2>Create Account</h2>
-        <button onClick={() => setIsSigningUp(true)} className="google-button">
-          <FaGoogle className="google-icon" />
-          Sign up with Google
-        </button>
-
-        <p className="su--text">-OR-</p>
-        <form onSubmit={handleSignUp}>
-          <label>
-            Email:
-            <input
-              type="email"
-              value={inputEmail}
-              onChange={(e) => setInputEmail(e.target.value)}
-            />
-          </label>
-          <label>
-            Username:
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </label>
-          <label>
-            Password:
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </label>
-          <label>
-            Confirm password:
-            <input
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-          </label>
-          <button className="signup--button" type="submit">
-            Create account
+    <body class="signup-page">
+      <div className="signup--container">
+        <div className="signup--column">
+          <AdvertiseSection />
+        </div>
+        <div className="signup--column">
+          <h2>Create Account</h2>
+          <button
+            onClick={() => setIsSigningUp(true)}
+            className="google-button"
+          >
+            <FaGoogle className="google-icon" />
+            Sign up with Google
           </button>
-        </form>
-        <p>
-          Already have an account?{' '}
-          <a href="/login" className="su--text">
-            Log in
-          </a>
-        </p>
-        {errors.length > 0 && (
-          <ul>
-            {errors.map((error) => (
-              <li key={error}>{error}</li>
-            ))}
-          </ul>
-        )}
+
+          <p className="su--text">-OR-</p>
+          <form onSubmit={handleSignUp}>
+            <label>
+              Email:
+              <input
+                type="email"
+                value={inputEmail}
+                onChange={(e) => setInputEmail(e.target.value)}
+              />
+            </label>
+            <label>
+              Username:
+              <input
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </label>
+            <label>
+              Password:
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </label>
+            <label>
+              Confirm password:
+              <input
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+            </label>
+            <button className="signup--button" type="submit">
+              Create account
+            </button>
+          </form>
+          <p>
+            Already have an account?{' '}
+            <a href="/login" className="su--text">
+              Log in
+            </a>
+          </p>
+          {errors.length > 0 && (
+            <ul>
+              {errors.map((error) => (
+                <li key={error}>{error}</li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
-    </div>
+    </body>
   )
 }
 

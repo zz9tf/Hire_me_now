@@ -1,0 +1,11 @@
+.advertise-section {
+  background-color: #ecf5f6;
+  height: 100%;
+  width: 100%;
+}
+
+.ad--text {
+  color: #4cb4b4;
+  font-size: 1.5rem;
+  margin: 30px;
+}
