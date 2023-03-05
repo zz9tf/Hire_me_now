@@ -9,8 +9,6 @@ import {
 
 import Coffee from './Coffee'
 
-// import sgMail from '@sendgrid/mail'
-
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -32,37 +30,16 @@ export default function ContactForm() {
 
   async function handleSubmit(event) {
     event.preventDefault()
-
-    // try {
-    //   await sgMail.send({
-    //     to: 'haolu1125@gmail.com',
-    //     from: formData.email,
-    //     subject: `New message from ${formData.firstName} ${formData.lastName}`,
-    //     text: `Phone number: ${formData.phoneNumber}\n\n${formData.message}`,
-    //   })
-
-    //   alert('Message sent successfully!')
-    //   setFormData({
-    //     firstName: '',
-    //     lastName: '',
-    //     email: '',
-    //     phoneNumber: '',
-    //     message: '',
-    //   })
-    // } catch (error) {
-    //   console.error(error)
-    //   alert('Failed to send message.')
-    // }
   }
 
   return (
-    <div className="container">
+    <div className="contact--container">
       <div className="title">
         <h1>Contact Us</h1>
         <p>Any question or remarks? Just write us a message!</p>
       </div>
       <div className="canvas">
-        <div className="column left-canvas">
+        <div className="contact--column left-canvas">
           <div className="contact--intro">
             <h2>Contact Information</h2>
             <p>Say something to start a live chat!</p>
@@ -72,7 +49,7 @@ export default function ContactForm() {
             <p>415 South St, Waltham, MA 02453</p>
             <Coffee />
           </div>
-          <div className="row social-icons">
+          <div className="contact--row social-icons">
             <a href="https://twitter.com">
               <FontAwesomeIcon icon={faTwitter} />
             </a>
@@ -85,11 +62,12 @@ export default function ContactForm() {
           </div>
         </div>
 
-        <div className="column right-canvas">
+        <div className="contact--column right-canvas">
           <form className="contact-form" onSubmit={handleSubmit}>
-            <div className="row">
-              <div className="column">
+            <div className="contact--row">
+              <div className="contact--column">
                 <input
+                  className="contact--input"
                   type="text"
                   placeholder="First Name"
                   onChange={handleChange}
@@ -97,8 +75,9 @@ export default function ContactForm() {
                   value={formData.firstName}
                 />
               </div>
-              <div className="column">
+              <div className="contact--column">
                 <input
+                  className="contact--input"
                   type="text"
                   placeholder="Last Name"
                   onChange={handleChange}
@@ -107,9 +86,10 @@ export default function ContactForm() {
                 />
               </div>
             </div>
-            <div className="row">
-              <div className="column">
+            <div className="contact--row">
+              <div className="contact--column">
                 <input
+                  className="contact--input"
                   type="email"
                   placeholder="Email"
                   onChange={handleChange}
@@ -117,8 +97,9 @@ export default function ContactForm() {
                   value={formData.email}
                 />
               </div>
-              <div className="column">
+              <div className="contact--column">
                 <input
+                  className="contact--input"
                   type="phoneNumber"
                   placeholder="Phone Number"
                   onChange={handleChange}
@@ -127,8 +108,9 @@ export default function ContactForm() {
                 />
               </div>
             </div>
-            <div className="row">
+            <div className="contact--row">
               <textarea
+                className="contact--message"
                 value={formData.message}
                 placeholder="Message"
                 onChange={handleChange}
@@ -136,7 +118,7 @@ export default function ContactForm() {
                 style={{ height: '8rem', width: '100%' }}
               />
             </div>
-            <div className="row">
+            <div className="contact--row">
               <button className="contact--button">Send Message</button>
             </div>
           </form>
