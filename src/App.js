@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet'
 import NavBar from './components/Navbar'
 import Contact from './components/Contact'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import CoverLetter from './components/CoverLetter'
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route path="/contact">
             <Contact />
+          </Route>
+          <Route path="/coverletter">
+            <CoverLetter />
           </Route>
         </Switch>
       </Router>
