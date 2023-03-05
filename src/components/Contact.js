@@ -36,7 +36,7 @@ export default function ContactForm() {
     <div className="contact--container">
       <div className="title">
         <h1>Contact Us</h1>
-        <p>Any question or remarks? Just write us a message!</p>
+        <p style={{color:'#4cb4b4'}}>Any question or remarks? Just write us a message!</p>
       </div>
       <div className="canvas">
         <div className="contact--column left-canvas">
