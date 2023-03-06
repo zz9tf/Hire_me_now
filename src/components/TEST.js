@@ -10,7 +10,7 @@ const TEST = () => {
     }, [])
 
     let getTestData = async () => {
-        let response = await fetch('http://127.0.0.1:8000/routes')
+        let response = await fetch('/api/routes')
         let data = await response.json()
         console.log('DATA:', data)
         setTest(data);
