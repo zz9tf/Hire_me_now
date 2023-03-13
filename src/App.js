@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import CoverLetter from './components/CoverLetter'
 import SignUp from './components/SignUp'
 import Footer from './components/Footer'
+import Login from './components/Login'
 
 function App() {
   return (
@@ -41,12 +42,15 @@ function App() {
           <Route path="/coverletter">
             <CoverLetter />
           </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
           <Route path="/signup">
             <SignUp />
           </Route>
         </Switch>
       </Router>
-    <Footer></Footer>
+      <Footer></Footer>
     </div>
   )
 }
