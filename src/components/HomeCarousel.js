@@ -2,7 +2,7 @@
 import '../css/HomeCarousel.css'
 import Carousel from 'react-bootstrap/Carousel';
 import slider1Dec1 from '../img/cl_carousel.png';
-import slider2Dec2 from '../img/decoration1.png'
+import slider2Dec2 from '../img/cv_carousel.png'
 import slider1Dec2 from '../img/decoration2.png';
 
 
@@ -19,18 +19,18 @@ function HomeCarousel() {
     },
     {
       id: 2,
-      imageUrls: [slider1Dec1, slider1Dec2, slider1Dec1],
-      backgroundColor: "#E8EDFA",
+      imageUrls: [slider2Dec2],
+      backgroundColor: "#F6E8EA",
       title: "Your Resume, Could be Outstanding.",
       description: "We are your perfect writing helper for resumes and cover letters. Choose from several templates and follow easy prompts to create the perfect job-ready resume effortlessly.",
-      buttonText: "Learn More"
+      buttonText: "Build Resume"
     },
     {
       id: 3,
       imageUrls: [slider1Dec1, slider1Dec2, slider1Dec1],
-      backgroundColor: "#F6E8EA",
+      backgroundColor: "#F7F7F7",
       title: "Third slide label",
-      description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur.",
+      description: "We are your perfect writing helper for resumes and cover letters. Choose from several templates and follow easy prompts to create the perfect job-ready resume effortlessly.",
       buttonText: "Learn More"
     },
     {
@@ -38,7 +38,7 @@ function HomeCarousel() {
       imageUrls: [slider1Dec1, slider1Dec2, slider1Dec1],
       backgroundColor: "#F7F7F7",
       title: "Fourth slide label",
-      description: "Curabitur ullamcorper ultricies nisi. Nam eget dui.",
+      description: "We are your perfect writing helper for resumes and cover letters. Choose from several templates and follow easy prompts to create the perfect job-ready resume effortlessly.",
       buttonText: "Learn More"
     },
     {
@@ -46,7 +46,7 @@ function HomeCarousel() {
       imageUrls: [slider1Dec1, slider1Dec2, slider1Dec1],
       backgroundColor: "#F6E8EA",
       title: "Fifth slide label",
-      description: "Etiam justo. Etiam pretium iaculis justo.",
+      description: "We are your perfect writing helper for resumes and cover letters. Choose from several templates and follow easy prompts to create the perfect job-ready resume effortlessly.",
       buttonText: "Learn More"
     }
   ];
