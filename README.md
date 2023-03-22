@@ -25,6 +25,7 @@ Our platform is designed to help job seekers stand out in a competitive job mark
 │   ├── index.html
 │   ├── manifest.json
 │   └── robots.txt
+├── .env
 └── src
     ├── App.js
     ├── App.test.js
@@ -48,6 +49,18 @@ Our platform is designed to help job seekers stand out in a competitive job mark
 
 ```
 
+## Enviroment Setup
+
+In this project, we use .env file for more sefety.
+
+Therefore, after clone this project, you need to add .env file in to your **root folder**
+
+And inside your .env file, you need to setup cors-headers variable for cors-headers purpose.
+
+Examples (For just run it, you can create a .env file, and paste the following contents into .env file):
+```
+REACT_APP_BECKEND_HOST=http://127.0.0.1:8000
+```
 
 ## Available Scripts
 

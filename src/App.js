@@ -1,5 +1,3 @@
-import './css/App.css'
-
 import { Helmet } from 'react-helmet'
 import NavBar from './components/Navbar'
 import Contact from './components/Contact'
@@ -7,9 +5,15 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import CoverLetter from './components/CoverLetter'
 import SignUp from './components/SignUp'
 import Footer from './components/Footer'
+<<<<<<< HEAD
 import Carousel from './components/HomeCarousel'
 import HomeCarousel from './components/HomeCarousel'
 import FunctionBorders from './components/FunctionBorders'
+=======
+import Login from './components/Login'
+import TEST from './components/TEST'
+
+>>>>>>> develop
 
 function App() {
   return (
@@ -48,12 +52,18 @@ function App() {
           <Route path="/coverletter">
             <CoverLetter />
           </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
           <Route path="/signup">
             <SignUp />
           </Route>
+          <Route path="/test">
+            <TEST />
+          </Route>
         </Switch>
       </Router>
-    <Footer></Footer>
+      <Footer></Footer>
     </div>
   )
 }
