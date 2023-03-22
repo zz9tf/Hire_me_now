@@ -52,7 +52,7 @@ function HomeCarousel() {
   ];
   
   return ( 
-    <Carousel interval={10000} slide={true}>
+    <Carousel interval={5000} slide={true}>
       {slides.map((slide) => (
         <Carousel.Item key={slide.id}>
           <div

@@ -53,9 +53,30 @@
     font-size:19px;
   }
 
-  .caption-right button:hover{
+.caption-right button:hover{
     background-color: rgba(116, 82, 255, 1);
     color:white;
   }
+
+.carousel-control-prev,
+.carousel-control-next {
+  filter: invert(30%); /* This will make the arrows white or any desired color */
+}
+
+/* If you want to change the color of the arrow when hovering */
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  filter: invert(70%); /* This will make the arrows a lighter color (e.g., light gray) when hovering */
+}
+
+.carousel-control-prev-icon::before,
+.carousel-control-next-icon::before {
+  color: #4CB4B4; /* Set the desired color for the arrow icons */
+}
+  
+.carousel-control-prev:hover .carousel-control-prev-icon::before,
+.carousel-control-next:hover .carousel-control-next-icon::before {
+  color: white; /* Set the desired color for the arrow icons when hovering */
+}
 
   
