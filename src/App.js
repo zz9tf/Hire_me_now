@@ -1,5 +1,3 @@
-import './css/App.css'
-
 import { Helmet } from 'react-helmet'
 import NavBar from './components/Navbar'
 import Contact from './components/Contact'
@@ -8,6 +6,8 @@ import CoverLetter from './components/CoverLetter'
 import SignUp from './components/SignUp'
 import Footer from './components/Footer'
 import Login from './components/Login'
+import TEST from './components/TEST'
+
 
 function App() {
   return (
@@ -47,6 +47,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignUp />
+          </Route>
+          <Route path="/test">
+            <TEST />
           </Route>
         </Switch>
       </Router>
