@@ -5,9 +5,15 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import CoverLetter from './components/CoverLetter'
 import SignUp from './components/SignUp'
 import Footer from './components/Footer'
+<<<<<<< HEAD
+import Carousel from './components/HomeCarousel'
+import HomeCarousel from './components/HomeCarousel'
+import FunctionBorders from './components/FunctionBorders'
+=======
 import Login from './components/Login'
 import TEST from './components/TEST'
 
+>>>>>>> develop
 
 function App() {
   return (
@@ -25,7 +31,11 @@ function App() {
 
         <Switch>
           <Route exact path="/">
-            <header className="App-header">
+            <div>
+              <HomeCarousel></HomeCarousel>
+              <FunctionBorders></FunctionBorders>
+          </div>
+            {/* <header className="App-header">
               <h1>
                 Your Resume, <br /> Could be
                 <span style={{ color: 'rgba(76, 180, 180, 1)' }}>
@@ -34,7 +44,7 @@ function App() {
                 </span>
                 .
               </h1>
-            </header>
+            </header> */}
           </Route>
           <Route path="/contact">
             <Contact />
