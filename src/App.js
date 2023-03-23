@@ -58,6 +58,8 @@ function App() {
           <Route path="/test">
             <TEST />
           </Route>
+          <Route path="/coverletters" component={CoverLetter} />
+          <Route path="/test" component={TEST} />
         </Switch>
       </Router>
       <Footer></Footer>
