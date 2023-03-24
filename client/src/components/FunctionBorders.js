@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../css/FunctionBorders.css';
+import { Link } from 'react-router-dom';
 import coverletterImg from '../img/coverletter_icon.png';
 import writtingHelpImg from '../img/writinghelper_icon.png';
 import interviewImg from '../img/Interview_icon.png';
@@ -18,7 +18,7 @@ const FunctionBorders = () => {
       id: 2,
       imageUrl: coverletterImg,
       title: 'Write<br />Coverletters',
-      link: '/coverletter',
+      link: '/coverletters',
     },
     {
       id: 3,
@@ -33,25 +33,24 @@ const FunctionBorders = () => {
       link: '/translateResume',
     },
   ];
-
   return (
     <div className="horizontal-borders">
-      
-      
       {items.map((item) => (
-        <Link to={item.link}>
-          <div key={item.id} className="border-item">
-            <img src={item.imageUrl} alt={item.title} className="border-image" />
-            <h4 className="border-title">
-            {item.title.split('<br />').map((line, index) => (
+        <div key={item.id} className="border-item">
+          <Link to={item.link}>
+            <div className="image-container">
+              <img src={item.imageUrl} alt={item.title} className="border-image" />
+            </div>
+            <h4>
+              {item.title.split('<br />').map((line, index) => (
                 <React.Fragment key={index}>
                   {index > 0 && <br />}
                   {line}
                 </React.Fragment>
               ))}
             </h4>
-          </div>
-        </Link>
+          </Link>
+        </div>
       ))}
     </div>
   );
