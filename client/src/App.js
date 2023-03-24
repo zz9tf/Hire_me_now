@@ -5,11 +5,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import CoverLetter from './components/CoverLetter'
 import SignUp from './components/SignUp'
 import Footer from './components/Footer'
-import Carousel from './components/HomeCarousel'
 import HomeCarousel from './components/HomeCarousel'
 import FunctionBorders from './components/FunctionBorders'
 import Login from './components/Login'
-
 
 function App() {
   return (
@@ -30,17 +28,7 @@ function App() {
             <div>
               <HomeCarousel></HomeCarousel>
               <FunctionBorders></FunctionBorders>
-          </div>
-            {/* <header className="App-header">
-              <h1>
-                Your Resume, <br /> Could be
-                <span style={{ color: 'rgba(76, 180, 180, 1)' }}>
-                  {' '}
-                  Outstanding
-                </span>
-                .
-              </h1>
-            </header> */}
+            </div>
           </Route>
           <Route path="/contact">
             <Contact />
