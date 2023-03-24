@@ -54,7 +54,6 @@ function App() {
           <Route path="/signup">
             <SignUp />
           </Route>
-          <Route path="/coverletters" component={CoverLetter} />
         </Switch>
       </Router>
       <Footer></Footer>
