@@ -18,7 +18,7 @@ const FunctionBorders = () => {
       id: 2,
       imageUrl: coverletterImg,
       title: 'Write<br />Coverletters',
-      link: '/coverletters',
+      link: '/coverletter',
     },
     {
       id: 3,

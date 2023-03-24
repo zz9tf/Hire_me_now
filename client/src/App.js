@@ -9,7 +9,6 @@ import Carousel from './components/HomeCarousel'
 import HomeCarousel from './components/HomeCarousel'
 import FunctionBorders from './components/FunctionBorders'
 import Login from './components/Login'
-import TEST from './components/TEST'
 
 
 function App() {
@@ -55,11 +54,6 @@ function App() {
           <Route path="/signup">
             <SignUp />
           </Route>
-          <Route path="/test">
-            <TEST />
-          </Route>
-          <Route path="/coverletters" component={CoverLetter} />
-          <Route path="/test" component={TEST} />
         </Switch>
       </Router>
       <Footer></Footer>
