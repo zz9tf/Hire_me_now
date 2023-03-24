@@ -11,19 +11,19 @@ const FunctionBorders = () => {
     {
       id: 1,
       imageUrl: writtingHelpImg,
-      title: 'Find Your AI Writing Helper',
+      title: 'Find Your<br />AI Writing Helper',
       link: '/writing',
     },
     {
       id: 2,
       imageUrl: coverletterImg,
       title: 'Write<br />Coverletters',
-      link: '/coverletters',
+      link: '/coverletter',
     },
     {
       id: 3,
       imageUrl: interviewImg,
-      title: 'Interview Question Guidance',
+      title: 'Interview Question<br />Guidance',
       link: '/interviewQuestions',
     },
     {

@@ -32,16 +32,7 @@ function App() {
               <HomeCarousel></HomeCarousel>
               <FunctionBorders></FunctionBorders>
           </div>
-            {/* <header className="App-header">
-              <h1>
-                Your Resume, <br /> Could be
-                <span style={{ color: 'rgba(76, 180, 180, 1)' }}>
-                  {' '}
-                  Outstanding
-                </span>
-                .
-              </h1>
-            </header> */}
+
           </Route>
           <Route path="/contact">
             <Contact />
@@ -58,8 +49,8 @@ function App() {
           <Route path="/test">
             <TEST />
           </Route>
-          <Route path="/coverletters" component={CoverLetter} />
-          <Route path="/test" component={TEST} />
+          {/* <Route path="/coverletters" component={CoverLetter} />
+          <Route path="/test" component={TEST} /> */}
         </Switch>
       </Router>
       <Footer></Footer>
