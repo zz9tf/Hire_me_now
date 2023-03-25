@@ -5,12 +5,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import CoverLetter from './components/CoverLetter'
 import SignUp from './components/SignUp'
 import Footer from './components/Footer'
-import Carousel from './components/HomeCarousel'
 import HomeCarousel from './components/HomeCarousel'
 import FunctionBorders from './components/FunctionBorders'
 import Login from './components/Login'
-import TEST from './components/TEST'
-
 
 function App() {
   return (
@@ -31,8 +28,7 @@ function App() {
             <div>
               <HomeCarousel></HomeCarousel>
               <FunctionBorders></FunctionBorders>
-          </div>
-
+            </div>
           </Route>
           <Route path="/contact">
             <Contact />
@@ -46,11 +42,6 @@ function App() {
           <Route path="/signup">
             <SignUp />
           </Route>
-          <Route path="/test">
-            <TEST />
-          </Route>
-          {/* <Route path="/coverletters" component={CoverLetter} />
-          <Route path="/test" component={TEST} /> */}
         </Switch>
       </Router>
       <Footer></Footer>
