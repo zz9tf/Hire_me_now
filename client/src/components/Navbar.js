@@ -17,13 +17,11 @@ function NavBar() {
         </div>
       </div>
       <div className="navbar__right">
-        <div className="navbar__login">
-          {/* <a href="/login">Member Login</a> */}
-          <h1>Google login</h1>
-          <GoogleLoginButton />
-        </div>
         <div className="navbar__contact">
           <a href="/contact">Contact Us</a>
+        </div>
+        <div className="navbar__login">
+          <GoogleLoginButton />
         </div>
         <a href="https://www.buymeacoffee.com" target="_blank">
           <img
