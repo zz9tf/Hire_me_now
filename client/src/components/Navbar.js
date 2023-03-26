@@ -1,6 +1,8 @@
 import hmnlogo from '../logoGroup.png'
 import '../css/Navbar.css'
 
+import GoogleLoginButton from './GoogleLoginButton'
+
 function NavBar() {
   return (
     <div className="navbar">
@@ -16,7 +18,9 @@ function NavBar() {
       </div>
       <div className="navbar__right">
         <div className="navbar__login">
-          <a href="/login">Member Login</a>
+          {/* <a href="/login">Member Login</a> */}
+          <h1>Google login</h1>
+          <GoogleLoginButton />
         </div>
         <div className="navbar__contact">
           <a href="/contact">Contact Us</a>
