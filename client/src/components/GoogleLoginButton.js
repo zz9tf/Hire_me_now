@@ -13,7 +13,7 @@ function GoogleLoginButton() {
 
   const postUserData = (profile) => {
     axios
-      .post('http://localhost:9000/api/auth/google', {
+      .post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/google`, {
         googleId: profile.id,
         email: profile.email,
         name: profile.name,
