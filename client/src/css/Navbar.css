@@ -45,13 +45,36 @@
     border-radius: 5px;
     font-size: 14px;
     font-weight:bold;
-    margin-right: 10px;
+    margin-right: 15px;
     cursor: pointer;
     text-decoration: none;
-  } */
+
 
   .navbar__login{
     margin-right: -150px; 
+  }
+  
+  .navbar__contact a {
+    background-color: transparent;
+    color: #565656;
+    font-weight:bold;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right:50px;
+    text-decoration: none;
+  }
+
+  .navbar__donate a {
+    background-color: transparent;
+    color: #565656;
+    font-weight:bold;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right:50px;
+    margin-left:10px;
+    text-decoration: none;
   }
 
 .navbar__contact a {
@@ -66,8 +89,9 @@
 }
 
 .navbar__login a:hover,
-.navbar__contact a:hover {
-  color: #4cb4b4;
+.navbar__contact a:hover,
+.navbar__donate a:hover {
+  color:#4cb4b4;
   text-decoration: underline;
   text-decoration-thickness: 3px;
   text-decoration-color: rgba(212, 244, 239, 1);
@@ -77,5 +101,6 @@
   height: 2vh;
   box-shadow: none;
   border: none;
-  vertical-align: middle;
+  margin-right: 10px;
+  /* vertical-align: middle; */
 }

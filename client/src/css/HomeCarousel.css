@@ -9,15 +9,15 @@
     flex-wrap: wrap;
     width: 50%;
     justify-content: flex-start;
-    align-items: center;
+    /* align-items: center; */
     align-content: flex-start;
   }
   
   .slider-image {
-    position: absolute;
-    width: 45%;
-    left: 63px;
-    top: 104px;
+    position: relative;
+    width: 75%;
+    left: 5px;
+    top: 75px;
   }
   
   .carousel-caption-container {

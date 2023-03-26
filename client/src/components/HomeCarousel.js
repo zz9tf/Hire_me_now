@@ -4,6 +4,8 @@ import Carousel from 'react-bootstrap/Carousel';
 import slider1Dec1 from '../img/cl_carousel.png';
 import slider2Dec2 from '../img/cv_carousel.png'
 import slider1Dec2 from '../img/decoration2.png';
+import { Link } from 'react-router-dom';
+
 
 
 function HomeCarousel() {
@@ -15,7 +17,8 @@ function HomeCarousel() {
       title: "Ignite careers with captivating cover letters.",
       description: "We are your perfect writing helper for resumes and cover letters. Choose from several templates and follow easy prompts to create the perfect job-ready resume effortlessly.",
       buttonText: "Write Coverletters",
-      highlightedWord: "Ignite"
+      highlightedWord: "Ignite",
+      link: "/coverletter",
     },
     {
       id: 2,
@@ -23,31 +26,35 @@ function HomeCarousel() {
       backgroundColor: "#F6E8EA",
       title: "Your Resume, Could be Outstanding.",
       description: "We are your perfect writing helper for resumes and cover letters. Choose from several templates and follow easy prompts to create the perfect job-ready resume effortlessly.",
-      buttonText: "Build Resume"
+      buttonText: "Build Resume",
+      link: "/coverletter",
     },
     {
       id: 3,
-      imageUrls: [slider1Dec1, slider1Dec2, slider1Dec1],
+      imageUrls: [slider1Dec1],
       backgroundColor: "#F7F7F7",
-      title: "Third slide label",
+      title: "Transform Your Text: AI Genius.",
       description: "We are your perfect writing helper for resumes and cover letters. Choose from several templates and follow easy prompts to create the perfect job-ready resume effortlessly.",
-      buttonText: "Learn More"
+      buttonText: "Find AI Writing Helper",
+      link: "/WritingHelper",
     },
     {
       id: 4,
-      imageUrls: [slider1Dec1, slider1Dec2, slider1Dec1],
+      imageUrls: [slider1Dec1],
       backgroundColor: "#F7F7F7",
       title: "Fourth slide label",
       description: "We are your perfect writing helper for resumes and cover letters. Choose from several templates and follow easy prompts to create the perfect job-ready resume effortlessly.",
-      buttonText: "Learn More"
+      buttonText: "Learn More",
+      link: "/coverletter",
     },
     {
       id: 5,
-      imageUrls: [slider1Dec1, slider1Dec2, slider1Dec1],
+      imageUrls: [slider1Dec1],
       backgroundColor: "#F6E8EA",
       title: "Fifth slide label",
       description: "We are your perfect writing helper for resumes and cover letters. Choose from several templates and follow easy prompts to create the perfect job-ready resume effortlessly.",
-      buttonText: "Learn More"
+      buttonText: "Learn More",
+      link: "/coverletter",
     }
   ];
   
@@ -79,7 +86,9 @@ function HomeCarousel() {
                   })} */}
                 </h3>
                 <p>{slide.description}</p>
-                <button>{slide.buttonText}</button>
+                <Link to={slide.link}>
+                  <button>{slide.buttonText}</button>
+                </Link>
               </div>
             </div>
           </div>

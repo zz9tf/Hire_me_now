@@ -35,10 +35,10 @@ function Footer() {
                   <a href="#">Resume Template</a>
                 </li>
                 <li>
-                  <a href="#">AI Writing Helper</a>
+                  <a href="/WritingHelper">AI Writing Helper</a>
                 </li>
                 <li>
-                  <a href="#">Write Cover Letters</a>
+                  <a href="/CoverLetter">Write Cover Letters</a>
                 </li>
                 <li>
                   <a href="#">Interview Question Guidance</a>
