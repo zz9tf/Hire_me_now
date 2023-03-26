@@ -1,96 +1,146 @@
-import React, { useState } from 'react'
-import '../css/CoverLetter.css'
-function CoverLetter() {
-  const [formValues, setFormValues] = useState({
-    companyName: '',
-    jobTitle: '',
-    jobDescription: '',
-    companyLocation: '',
-  })
+import React, { Component } from 'react';
+import axios from 'axios'
+import { Form } from 'react-bootstrap';
+import parse from 'html-react-parser';
+import '../css/CoverLetter.css';
 
-  const [date, setDate] = useState(new Date().toLocaleDateString())
+class CoverLetter extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            submitForm: {
+                companyName: '',
+                jobTitle: '',
+                jobDescription: '',
+                companyLocation: '',
+            },
+            date: new Date().toLocaleDateString(),
+            generatedCoverLetter: '',
+        }
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleModifyCoverLetter = this.handleModifyCoverLetter.bind(this);
+    }
 
-  const [generatedCoverLetter, setGeneratedCoverLetter] = useState('')
+    handleSubmit(e) {
+      e.preventDefault();
+      // Logic to generate the cover letter goes here
+      
+      axios
+        .post(`${process.env.REACT_APP_BECKEND_DJANGO}/api/generateCoverLetter`, this.state.submitForm)
+        .then((response) => {
+          let newCoverLetter = '';
+          newCoverLetter = JSON.stringify(response.data.query)
+          console.log(newCoverLetter);
+          this.setState({ generatedCoverLetter: newCoverLetter });
+        })
+        .catch((error) => {
+          console.log('Error posting data to generate cover letter: ', error);
+          console.log('Error detail: ', error.response);
+        })
+    }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // Logic to generate the cover letter goes here
-    const newCoverLetter = '...' // Generated cover letter content
-    setGeneratedCoverLetter(newCoverLetter)
-  }
+    handleInputChange(e) {
+      const { name, value } = e.target;
+      this.setState((prevState) => ({
+        submitForm: {
+          ...prevState.submitForm,
+          [name]: value,
+        }
+      }))
+      console.log('Data has been changed. Now it is:');
+      console.log(this.state.submitForm);
+    }
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target
-    setFormValues({
-      ...formValues,
-      [name]: value,
-    })
-  }
+    handleModifyCoverLetter(e) {
+      const { name, value } = e.target;
+      this.setState({ generatedCoverLetter : value })
+      console.log('Cover letter has been changed. Now it is:\n');
+      console.log(this.state.generatedCoverLetter);
+    }
 
-  return (
-    <div className="cl--container">
-      <div className="cl--column">
-        <form className="cl-form" onSubmit={handleSubmit}>
-          <div className="cl--form-group">
-            <label htmlFor="company-name">Company Name</label>
-            <input
-              type="text"
-              id="company-name"
-              name="companyName"
-              value={formValues.companyName}
-              onChange={handleInputChange}
-              required
-            />
+    render() {
+        const { submitForm, date, generatedCoverLetter } = this.state;
+
+        return (
+          <div className="cl--container">
+            <div className="cl--column" id='User information'>
+              <Form onSubmit={this.handleSubmit}>
+                <Form.Group controlId="company-name">
+                  <Form.Label>Company Name</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="companyName"
+                    value={submitForm.companyName}
+                    onChange={this.handleInputChange}
+                    required
+                  />
+                </Form.Group>
+      
+                <Form.Group controlId="job-title">
+                  <Form.Label>Job Title</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="jobTitle"
+                    value={submitForm.jobTitle}
+                    onChange={this.handleInputChange}
+                    required
+                  />
+                </Form.Group>
+      
+                <Form.Group controlId="company-location">
+                  <Form.Label>Company Location</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="companyLocation"
+                    value={submitForm.companyLocation}
+                    onChange={this.handleInputChange}
+                    required
+                  />
+                </Form.Group>
+      
+                <Form.Group controlId="job-description">
+                  <Form.Label>Job Description</Form.Label>
+                  <Form.Control
+                    as="textarea"
+                    name="jobDescription"
+                    value={submitForm.jobDescription}
+                    onChange={this.handleInputChange}
+                    required
+                    style={{ height: '8rem' }}
+                  />
+                </Form.Group>
+                <button className="cl--button">Generate Cover Letter</button>
+              </Form>
+            </div>
+            
+            <div className='cl--column' id='Generated cover letter'>
+              <Form className="cl-preview">
+                <Form.Group controlId="generatedCoverLetter">
+                  <h2><Form.Label className='cl-title'>Cover Letter Content</Form.Label></h2>
+                  <Form.Control
+                    type="text"
+                    name="generatedCoverLetter"
+                    value={generatedCoverLetter}
+                    onChange={this.handleModifyCoverLetter}
+                    required
+                  />
+                </Form.Group>
+              </Form>
+            </div>
+
+            <div className="cl--column">
+              <div className="cl-preview">
+                <h2 className="cl-title">Cover Letter Content</h2>
+                <div className="cover-letter-container">{parse(generatedCoverLetter)}</div>
+              </div>
+      
+              <button className="cl--button">Regenerate?</button>
+              <button className="cl--button">Preview</button>
+            </div>
           </div>
-          <div className="cl--form-group">
-            <label htmlFor="job-title">Job Title</label>
-            <input
-              type="text"
-              id="job-title"
-              name="jobTitle"
-              value={formValues.jobTitle}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-
-          <div className="cl--form-group">
-            <label htmlFor="company-location">Company Location</label>
-            <input
-              type="text"
-              id="company-location"
-              name="companyLocation"
-              value={formValues.companyLocation}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-          <div className="cl--form-group">
-            <label htmlFor="job-description">Job Description</label>
-            <textarea
-              id="job-description"
-              name="jobDescription"
-              value={formValues.jobDescription}
-              onChange={handleInputChange}
-              required
-              overflow="scroll"
-              style={{ height: '8rem' }}
-            />
-          </div>
-          <button className="cl--button">Generate Cover Letter</button>
-        </form>
-      </div>
-      <div className="cl--column">
-        <div className="cl-preview">
-          <h2 className="cl-title">Cover Letter Preview</h2>
-          <div className="cover-letter-container">{generatedCoverLetter}</div>
-        </div>
-
-        <button className="cl--button">Regenerate?</button>
-        <button className="cl--button">Download PDF</button>
-      </div>
-    </div>
-  )
+        )
+    } 
 }
 
-export default CoverLetter
+export default CoverLetter;
