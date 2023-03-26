@@ -37,7 +37,7 @@
   align-items: center;
 }
 
-/* .navbar__login a {
+/* /* .navbar__login a {
     background-color: #fff;
     color: #565656;
     padding: 10px 20px;
@@ -47,7 +47,7 @@
     font-weight:bold;
     margin-right: 15px;
     cursor: pointer;
-    text-decoration: none;
+    text-decoration: none; */
 
 
   .navbar__login{
