@@ -1,6 +1,8 @@
 import hmnlogo from '../logoGroup.png'
 import '../css/Navbar.css'
 
+import GoogleLoginButton from './GoogleLoginButton'
+
 function NavBar() {
   return (
     <div className="navbar">
@@ -15,11 +17,11 @@ function NavBar() {
         </div>
       </div>
       <div className="navbar__right">
-        <div className="navbar__login">
-          <a href="/login">Member Login</a>
-        </div>
         <div className="navbar__contact">
           <a href="/contact">Contact Us</a>
+        </div>
+        <div className="navbar__login">
+          <GoogleLoginButton />
         </div>
         <div className="navbar__donate"> 
           <a href="https://www.buymeacoffee.com" target="_blank">
@@ -30,6 +32,7 @@ function NavBar() {
             /> Donate
           </a>
         </div>
+
       </div>
     </div>
   )
