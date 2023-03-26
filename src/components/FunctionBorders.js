@@ -12,7 +12,7 @@ const FunctionBorders = () => {
       id: 1,
       imageUrl: writtingHelpImg,
       title: 'Find Your<br />AI Writing Helper',
-      link: '/writing',
+      link: '/writingHelper',
     },
     {
       id: 2,

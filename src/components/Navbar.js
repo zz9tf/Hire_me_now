@@ -21,13 +21,15 @@ function NavBar() {
         <div className="navbar__contact">
           <a href="/contact">Contact Us</a>
         </div>
-        <a href="https://www.buymeacoffee.com" target="_blank">
-          <img
-            className="coffeeImage"
-            src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg"
-            alt="Buy me a coffee"
-          />
-        </a>
+        <div className="navbar__donate"> 
+          <a href="https://www.buymeacoffee.com" target="_blank">
+            <img
+              className="coffeeImage"
+              src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg"
+              alt="Buy me a coffee"
+            /> Donate
+          </a>
+        </div>
       </div>
     </div>
   )

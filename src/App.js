@@ -3,9 +3,9 @@ import NavBar from './components/Navbar'
 import Contact from './components/Contact'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import CoverLetter from './components/CoverLetter'
+import WritingHelper from'./components/WritingHelper'
 import SignUp from './components/SignUp'
 import Footer from './components/Footer'
-import Carousel from './components/HomeCarousel'
 import HomeCarousel from './components/HomeCarousel'
 import FunctionBorders from './components/FunctionBorders'
 import Login from './components/Login'
@@ -39,6 +39,9 @@ function App() {
           </Route>
           <Route path="/coverletter">
             <CoverLetter />
+          </Route>
+          <Route path="/writinghelper">
+            <WritingHelper />
           </Route>
           <Route path="/login">
             <Login />
