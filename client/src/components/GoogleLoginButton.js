@@ -1,33 +1,25 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { googleLogout, useGoogleLogin } from '@react-oauth/google'
 import axios from 'axios'
 import styles from '../css/GoogleLoginButton.css'
+import {
+  loginSuccess,
+  loginError,
+  setProfile,
+  logout,
+  postUserData,
+} from '../components/googleActions'
 
 function GoogleLoginButton() {
-  const [user, setUser] = useState([])
-  const [profile, setProfile] = useState([])
+  const dispatch = useDispatch()
+  const user = useSelector((state) => state.google.user)
+  const profile = useSelector((state) => state.google.profile)
 
   const login = useGoogleLogin({
-    onSuccess: (codeResponse) => setUser(codeResponse),
-    onError: (error) => console.log('Login Failed:', error),
+    onSuccess: (codeResponse) => dispatch(loginSuccess(codeResponse)),
+    onError: (error) => dispatch(loginError(error)),
   })
-
-  const postUserData = (profile) => {
-    axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/google`, {
-        googleId: profile.id,
-        email: profile.email,
-        name: profile.name,
-        imageUrl: profile.picture,
-      })
-      .then((response) => {
-        console.log('User data posted to backend:', response)
-      })
-      .catch((error) => {
-        console.log('Error posting user data to backend:', error)
-        console.log('Error detail reason:', error.response)
-      })
-  }
 
   useEffect(() => {
     if (user) {
@@ -42,17 +34,16 @@ function GoogleLoginButton() {
           }
         )
         .then((res) => {
-          setProfile(res.data)
-          postUserData(res.data)
+          dispatch(setProfile(res.data))
+          dispatch(postUserData(res.data))
         })
         .catch((err) => console.log(err))
     }
-  }, [user])
+  }, [user, dispatch])
 
-  // log out function to log the user out of google and set the profile array to null
   const logOut = () => {
     googleLogout()
-    setProfile(null)
+    dispatch(logout())
   }
 
   return (
