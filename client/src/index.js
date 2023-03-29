@@ -2,7 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import { Provider } from 'react-redux'
-import store from './components/store'
+import { PersistGate } from 'redux-persist/integration/react'
+import { store, persistor } from './components/store'
 
 import { GoogleOAuthProvider } from '@react-oauth/google'
 // import './axiosConfig'
@@ -12,7 +13,9 @@ root.render(
   <React.StrictMode>
     <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
       <Provider store={store}>
-        <App />
+        <PersistGate loading={null} persistor={persistor}>
+          <App />
+        </PersistGate>
       </Provider>
     </GoogleOAuthProvider>
   </React.StrictMode>
