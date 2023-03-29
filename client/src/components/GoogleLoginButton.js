@@ -24,7 +24,6 @@ function GoogleLoginButton() {
 
 useEffect(() => {
   console.log('user:', user)
-  console.log('profile:', profile)
 
   if (user) {
     axios
@@ -40,6 +39,7 @@ useEffect(() => {
       .then((res) => {
         dispatch(setProfile(res.data))
         dispatch(postUserData(res.data))
+        console.log('profile:', profile)
       })
       .catch((err) => console.log(err))
   }
