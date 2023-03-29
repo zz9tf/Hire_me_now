@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { googleLogout, useGoogleLogin } from '@react-oauth/google'
-
-import axios from '../axiosConfig' // Replace the existing import
-
+import axios from 'axios'
 import styles from '../css/GoogleLoginButton.css'
 import {
   loginSuccess,
@@ -11,7 +9,6 @@ import {
   setProfile,
   logout,
   postUserData,
-  loadUserFromLocalStorage
 } from '../components/googleActions'
 
 function GoogleLoginButton() {
@@ -24,10 +21,7 @@ function GoogleLoginButton() {
     onError: (error) => dispatch(loginError(error)),
   })
 
-  
-
   useEffect(() => {
-    dispatch(loadUserFromLocalStorage()) 
     if (user) {
       axios
         .get(
@@ -47,12 +41,10 @@ function GoogleLoginButton() {
     }
   }, [user, dispatch])
 
-const logOut = () => {
-  googleLogout()
-  localStorage.removeItem('token') // Remove JWT token from local storage
-  dispatch(logout())
-}
-
+  const logOut = () => {
+    googleLogout()
+    dispatch(logout())
+  }
 
   return (
     <div>

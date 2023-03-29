@@ -1,5 +1,4 @@
-import axios from '../axiosConfig'
-import jwt_decode from 'jwt-decode'
+import axios from 'axios'
 
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 export const LOGIN_ERROR = 'LOGIN_ERROR'
@@ -36,28 +35,10 @@ export const postUserData = (profile) => {
       })
       .then((response) => {
         console.log('User data posted to backend:', response)
-        // Save JWT token to local storage
-        localStorage.setItem('token', response.data.token)
       })
       .catch((error) => {
         console.log('Error posting user data to backend:', error)
         console.log('Error detail reason:', error.response)
       })
-  }
-}
-
-export const loadUserFromLocalStorage = () => {
-  return (dispatch) => {
-    const token = localStorage.getItem('token')
-    if (token) {
-      const decodedToken = jwt_decode(token)
-      const profile = {
-        id: decodedToken._id,
-        email: decodedToken.email,
-        name: decodedToken.name,
-        picture: decodedToken.imageUrl,
-      }
-      dispatch(setProfile(profile))
-    }
   }
 }
