@@ -37,6 +37,7 @@ useEffect(() => {
         }
       )
       .then((res) => {
+        console.log("what is res?", res.data)
         dispatch(setProfile(res.data))
         dispatch(postUserData(res.data))
         console.log('profile:', profile)
