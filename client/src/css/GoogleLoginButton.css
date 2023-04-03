@@ -3,8 +3,9 @@
   display: inline-block;
   color: #565656;
   width: 100px;
-  border-radius: 2px 0 0 2px;
-  box-shadow: 1px 1px 1px grey;
+  background-color: white;
+  border:white;
+  /* box-shadow: 1px 1px 1px grey; */
   white-space: nowrap;
   font-size: 14px;
   font-weight: bold;
@@ -20,8 +21,9 @@
   display: inline-block;
   color: #565656;
   width: 100px;
-  border-radius: 2px 0 0 2px;
-  box-shadow: 1px 1px 1px grey;
+  background-color: white;
+  border:white;
+  /* box-shadow: 1px 1px 1px grey; */
   white-space: nowrap;
   font-size: 14px;
   font-weight: bold;
@@ -30,4 +32,12 @@
   padding: 7px 0;
   margin-top: -50px;
   margin-right: 200px;
+}
+
+.loginButton:hover,
+.logoutButton:hover {
+  color:#4cb4b4;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-decoration-color: rgba(212, 244, 239, 1);
 }
