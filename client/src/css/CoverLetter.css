@@ -157,3 +157,8 @@
   font-style: italic;
   color: #b8b8b8;
 }
+
+.loading-spinner {
+  margin-left: 1rem;
+  color: #4cb4b4;
+}

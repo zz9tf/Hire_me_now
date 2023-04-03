@@ -7,7 +7,7 @@ import { View as ViewPdf } from '@react-pdf/renderer';
 import parse from 'html-react-parser';
 import '../css/CoverLetter.css';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.entry.js';
-
+import { Spinner } from 'react-bootstrap';
 
 pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
@@ -26,25 +26,27 @@ class CoverLetter extends Component {
             userName: '',
             contactInformation: '',
             workExperience: '',
-            skills: '',
+            Skills: '',
             // other information
             otherRevelantInfo: '',
             },
             date: new Date().toLocaleDateString(),
             generatedCoverLetter: '',
+            isLoading: false,
         }
       
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleModifyCoverLetter = this.handleModifyCoverLetter.bind(this);
         this.handleDownloadPDF = this.handleDownloadPDF.bind(this);
+      
 
     }
 
     handleSubmit(e) {
       e.preventDefault();
       // Logic to generate the cover letter goes here
-      
+      this.setState({ isLoading: true });
       axios
         .post(`${process.env.REACT_APP_BECKEND_DJANGO}/api/generateCoverLetter`, this.state.submitForm)
         .then((response) => {
@@ -54,11 +56,12 @@ class CoverLetter extends Component {
           // let newCoverLetter = response.data.query.replace(/\\n\\n/g, '\n\n'); // Replace \n\n with a single new line
           newCoverLetter += '\n\nDate: ' + this.state.date; 
           console.log(newCoverLetter);
-          this.setState({ generatedCoverLetter: newCoverLetter });
+          this.setState({ generatedCoverLetter: newCoverLetter, isLoading: false });
         })
         .catch((error) => {
           console.log('Error posting data to generate cover letter: ', error);
           console.log('Error detail: ', error.response);
+          this.setState({ isLoading: false });
         })
     }
 
@@ -145,14 +148,14 @@ class CoverLetter extends Component {
                     required
                   />
                 </Form.Group>
-                <Form.Group controlId="skills">
+                <Form.Group controlId="Skills">
                   <Form.Label className="input-lable">Skills
                   <span className="required-asterisk">*</span>
                   </Form.Label>
                   <Form.Control
                     as="textarea"
-                    name="skills"
-                    value={submitForm.skills}
+                    name="Skills"
+                    value={submitForm.Skills}
                     onChange={this.handleInputChange}
                     required
                     style={{ height: '8rem' }}
@@ -251,15 +254,21 @@ class CoverLetter extends Component {
                 <Form.Group controlId="generatedCoverLetter">
                 
                   <Form.Label className="input-lable cl-check-label">Check Your Cover Letter</Form.Label>
-                <Form.Control
-                  className="cl-check-input"
-                    as="textarea"
-                    name="generatedCoverLetter"
-                    value={generatedCoverLetter}
-                    onChange={this.handleModifyCoverLetter}
-                    required
-                    style={{ height: '65rem' }}
-                  />
+                  {this.state.isLoading ? (
+                    <Spinner className="loading-spinner" animation="border" role="status" style={{ margin: '0 10px' }}>
+                      <span className="sr-only">Loading...</span>
+                    </Spinner>
+                  ) : null}
+                     <Form.Control
+                       className="cl-check-input"
+                       as="textarea"
+                       name="generatedCoverLetter"
+                       value={generatedCoverLetter}
+                       onChange={this.handleModifyCoverLetter}
+                       required
+                       style={{ height: '65rem' }}
+                />
+                
                 </Form.Group>
               </Form>
             </div>
