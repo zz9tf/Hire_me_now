@@ -347,26 +347,6 @@ class CoverLetter extends Component {
                             </ViewPdf>
                           </Page>
                         </Document> */}
-<<<<<<< HEAD
-                    <p>{generatedCoverLetter}</p>
-                    <button
-                      className="cl--button center-button"
-                      onClick={this.handleDownloadPDF}
-                    >
-                      Download
-                    </button>
-                  </div>
-                ) : (
-                  <p>No PDF file specified</p>
-                )}
-              </Modal.Body>
-            </Modal>
-          </Form>
-        </div>
-      </div>
-    )
-  }
-=======
                         <p>{generatedCoverLetter}</p>
                         <button className='cl--button center-button' onClick={this.handleDownloadPDF}>
                           Download
@@ -382,7 +362,6 @@ class CoverLetter extends Component {
           </div>
         )
     } 
->>>>>>> origin/iss36
 }
 
 export default CoverLetter;
