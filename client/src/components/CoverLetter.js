@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
+import LoginModal from './LoginModal'
 import '../css/CoverLetter.css'
+
 function CoverLetter() {
+  const profile = useSelector((state) => state.google.profile)
+
   const [formValues, setFormValues] = useState({
     companyName: '',
     jobTitle: '',
@@ -19,6 +24,27 @@ function CoverLetter() {
     setGeneratedCoverLetter(newCoverLetter)
   }
 
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const handleGenerateButtonClick = (e) => {
+    console.log('clicked')
+    if (!profile) {
+      e.preventDefault()
+      setIsModalOpen(true) // Open the modal
+    } else {
+      handleSubmit(e)
+    }
+  }
+
+  const handleLogin = () => {
+    setIsModalOpen(false)
+  }
+
+
+  const closeModal = () => {
+    setIsModalOpen(false)
+  }
+
   const handleInputChange = (e) => {
     const { name, value } = e.target
     setFormValues({
@@ -30,7 +56,7 @@ function CoverLetter() {
   return (
     <div className="cl--container">
       <div className="cl--column">
-        <form className="cl-form" onSubmit={handleSubmit}>
+        <form className="cl-form" onSubmit={(e) => e.preventDefault()}>
           <div className="cl--form-group">
             <label htmlFor="company-name">Company Name</label>
             <input
@@ -77,8 +103,14 @@ function CoverLetter() {
               style={{ height: '8rem' }}
             />
           </div>
-          <button className="cl--button">Generate Cover Letter</button>
         </form>
+        <button
+          className="cl--button"
+          onClick={handleGenerateButtonClick}
+          // disabled={!profile}
+        >
+          Generate Cover Letter
+        </button>
       </div>
       <div className="cl--column">
         <div className="cl-preview">
@@ -89,6 +121,11 @@ function CoverLetter() {
         <button className="cl--button">Regenerate?</button>
         <button className="cl--button">Download PDF</button>
       </div>
+      <LoginModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        onLogin={handleLogin}
+      />
     </div>
   )
 }
