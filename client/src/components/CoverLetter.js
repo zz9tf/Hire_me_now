@@ -117,62 +117,7 @@ class CoverLetter extends Component {
                 <span className="stepNum">1. </span>
                 Write Your Information
               </h2>
-              <h3 className="info-title">Personal Information</h3>
-              
-              <Form onSubmit={this.handleSubmit}>
-              <Form.Group controlId="user-name">
-                  <Form.Label className="input-lable">User Name
-                  <span className="required-asterisk">*</span>
-                  </Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="userName"
-                    value={submitForm.userName}
-                    onChange={this.handleInputChange}
-                    required
-                  />
-                </Form.Group>
-                <Form.Group controlId="contact-information">
-                  <Form.Label className="input-lable">Contact Information
-                  <span className="required-asterisk">*</span>
-                  </Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="contactInformation"
-                    placeholder='Email or Phone Number'
-                    value={submitForm.contactInformation}
-                    onChange={this.handleInputChange}
-                    required
-                  />
-                </Form.Group>
-                <Form.Group controlId="skills">
-                  <Form.Label className="input-lable">Skills
-                  <span className="required-asterisk">*</span>
-                  </Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    name="skills"
-                    value={submitForm.skills}
-                    onChange={this.handleInputChange}
-                    required
-                    style={{ height: '8rem' }}
-                  />
-                </Form.Group>
-                <Form.Group controlId="work-experience">
-                  <Form.Label className="input-lable">Work Experience
-                  <span className="required-asterisk">*</span>
-                  </Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    name="workExperience"
-                    value={submitForm.workExperience}
-                    onChange={this.handleInputChange}
-                    required
-                    style={{ height: '8rem' }}
-                  />
-                </Form.Group>
-                <br /><br />
-                <h3 className="info-title">Job Information</h3>
+              <h3 className="info-title">Job Information</h3>
                 <Form.Group controlId="company-name">
                   <Form.Label className="input-lable">Company Name
                   <span className="required-asterisk">*</span>
@@ -226,6 +171,58 @@ class CoverLetter extends Component {
                   />
                 </Form.Group>
                 <br /><br />
+              <h3 className="info-title">Personal Information</h3>
+              
+              <Form onSubmit={this.handleSubmit}>
+              <Form.Group controlId="user-name">
+                  <Form.Label className="input-lable">Your Name
+                  <span className="required-asterisk"></span>
+                  </Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="userName"
+                    value={submitForm.userName}
+                    onChange={this.handleInputChange}
+                  />
+                </Form.Group>
+                <Form.Group controlId="contact-information">
+                  <Form.Label className="input-lable">Contact Information
+                  <span className="required-asterisk"></span>
+                  </Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="contactInformation"
+                    placeholder='Email or Phone Number'
+                    value={submitForm.contactInformation}
+                    onChange={this.handleInputChange}
+                  />
+                </Form.Group>
+                <Form.Group controlId="skills">
+                  <Form.Label className="input-lable">Skills
+                  <span className="required-asterisk"></span>
+                  </Form.Label>
+                  <Form.Control
+                    as="textarea"
+                    name="skills"
+                    value={submitForm.skills}
+                    onChange={this.handleInputChange}
+                    style={{ height: '8rem' }}
+                  />
+                </Form.Group>
+                <Form.Group controlId="work-experience">
+                  <Form.Label className="input-lable">Work Experience
+                  <span className="required-asterisk"></span>
+                  </Form.Label>
+                  <Form.Control
+                    as="textarea"
+                    name="workExperience"
+                    value={submitForm.workExperience}
+                    onChange={this.handleInputChange}
+                    style={{ height: '8rem' }}
+                  />
+                </Form.Group>
+                <br /><br />
+                
                 <h3 className="info-title">Other Information</h3>
                 <Form.Group controlId="otherRevelantInfo">
                   <Form.Label className="input-lable">Other Revelant Information
@@ -269,30 +266,26 @@ class CoverLetter extends Component {
                 <span className="stepNum">3. </span>
                 Review Your Cover Letter
               </h2>
-
-             
-    <div className="cl-preview">
-      <h2 className="input-lable cl-content-label">Cover Letter Content</h2>
-      {generatedCoverLetter ? (
-      <div className="cover-letter-container">
-        <Document file={{ data: new Blob([generatedCoverLetter], { type: 'text/plain' }) }}>
-          <Page size="A4">
-            <ViewPdf style={{ width: '100%', height: '100vh' }}>
-              {parse(generatedCoverLetter)}
-            </ViewPdf>
-          </Page>
-        </Document>
-      </div>
-    ) : (
-      <p>No PDF file specified</p>
-    )}
-    </div>
-
-      
-            <button className="cl--button">Regenerate?</button>
-            <button className="cl--button">Preview</button>
-            <button className="cl--button" onClick={this.handleDownloadPDF}>Download PDF</button>
-
+     
+              <div className="cl-preview">
+                <h2 className="input-lable cl-content-label">Cover Letter Content</h2>
+                {generatedCoverLetter ? (
+                <div className="cover-letter-container">
+                  <Document file={{ data: new Blob([generatedCoverLetter], { type: 'text/plain' }) }}>
+                    <Page size="A4">
+                      <ViewPdf style={{ width: '100%', height: '100vh' }}>
+                        {parse(generatedCoverLetter)}
+                      </ViewPdf>
+                    </Page>
+                  </Document>
+                </div>
+              ) : (
+                <p>No PDF file specified</p>
+              )}
+              </div>
+              <button className="cl--button">Regenerate?</button>
+              <button className="cl--button">Preview</button>
+              <button className="cl--button" onClick={this.handleDownloadPDF}>Download PDF</button>
             </div>
           </div>
         )
