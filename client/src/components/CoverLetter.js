@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Form } from 'react-bootstrap';
 import { Page, Document, pdfjs } from 'react-pdf';
 import { saveAs } from 'file-saver';
 import { View as ViewPdf } from '@react-pdf/renderer';
 import parse from 'html-react-parser';
 import '../css/CoverLetter.css';
 import pdfjsWorker from 'pdfjs-dist/build/pdf.worker.entry.js';
-import { Spinner } from 'react-bootstrap';
+import { Form, Modal, Spinner } from 'react-bootstrap';
 
 pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
@@ -33,13 +32,16 @@ class CoverLetter extends Component {
             date: new Date().toLocaleDateString(),
             generatedCoverLetter: '',
             isLoading: false,
+            isShowPDF: false,
         }
       
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleModifyCoverLetter = this.handleModifyCoverLetter.bind(this);
+        this.showPDF = this.showPDF.bind(this);
+        this.hidePDF = this.hidePDF.bind(this)
         this.handleDownloadPDF = this.handleDownloadPDF.bind(this);
-      
+        
 
     }
 
@@ -86,25 +88,33 @@ class CoverLetter extends Component {
       console.log(value)
     }
 
+    hidePDF() {
+      this.setState({ isShowPDF: false })
+    }
+
+    showPDF() {
+      this.setState({ isShowPDF: true })
+    }
+
     handleDownloadPDF = () => {
-      const { generatedCoverLetter } = this.state;
-      if (!generatedCoverLetter) {
-        console.error("generatedCoverLetter is empty");
-        return;
-      }
-      const doc = (
-        <Document>
-          <Page size="A4">
-            <ViewPdf>
-              {parse(generatedCoverLetter)}
-            </ViewPdf>
-          </Page>
-        </Document>
-      );
-      const asPdf = pdfjs.getDocument({ data: generatedCoverLetter });
-      asPdf.updateContainer(doc);
-      const blob = asPdf.toBlob();
-      saveAs(blob, 'cover_letter.pdf');
+      // const { generatedCoverLetter } = this.state;
+      // if (!generatedCoverLetter) {
+      //   console.error("generatedCoverLetter is empty");
+      //   return;
+      // }
+      // const doc = (
+      //   <Document>
+      //     <Page size="A4">
+      //       <ViewPdf>
+      //         {parse(generatedCoverLetter)}
+      //       </ViewPdf>
+      //     </Page>
+      //   </Document>
+      // );
+      // const asPdf = pdfjs.getDocument({ data: generatedCoverLetter });
+      // asPdf.updateContainer(doc);
+      // const blob = asPdf.toBlob();
+      // saveAs(blob, 'cover_letter.pdf');
     }
 
 
@@ -319,8 +329,34 @@ class CoverLetter extends Component {
                        required
                        style={{ height: '65rem' }}
                 />
-                
                 </Form.Group>
+                <button className="cl--button center-button" onClick={this.showPDF}>
+                    PDF Preview & Download
+                </button>
+                <Modal show={this.state.isShowPDF} onHide={this.hidePDF} dialogClassName='pdf-modal'>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Preview & Download</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body >
+                    {generatedCoverLetter ? (
+                      <div className="cover-letter-container">
+                        {/* <Document file={{ data: new Blob([generatedCoverLetter], { type: 'text/plain' }) }}>
+                          <Page size="A4">
+                            <ViewPdf style={{ width: '100%', height: '100vh'}}>
+                              {parse(generatedCoverLetter)}
+                            </ViewPdf>
+                          </Page>
+                        </Document> */}
+                        <p>{generatedCoverLetter}</p>
+                        <button className='cl--button center-button' onClick={this.handleDownloadPDF}>
+                          Download
+                        </button>
+                      </div>
+                    ) : (
+                      <p>No PDF file specified</p>
+                    )}
+                  </Modal.Body>
+                </Modal>
               </Form>
             </div>
           </div>

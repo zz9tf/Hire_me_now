@@ -162,3 +162,11 @@
   margin-left: 1rem;
   color: #4cb4b4;
 }
+
+.pdf-modal {
+  min-width: 65%;
+  /* box-shadow:0 0 5px white, 0 0 10px white, 0 0 15px white;
+  background:white;
+  border-radius: 10px; */
+
+}
