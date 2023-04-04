@@ -20,12 +20,7 @@
     "file-saver": "^2.0.5",
     "html-react-parser": "^3.0.15",
     "http-proxy-middleware": "^2.0.6",
-<<<<<<< HEAD
-    "jsonwebtoken": "^9.0.0",
-    "jwt-decode": "^3.1.2",
-=======
     "pdfjs-dist": "^3.4.120",
->>>>>>> origin/iss36
     "react": "^18.2.0",
     "react-bootstrap-validation": "^0.1.11",
     "react-dom": "^18.2.0",
