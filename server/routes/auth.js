@@ -1,19 +1,22 @@
 const express = require('express')
 const router = express.Router()
+const User = require('../models/User')
 
 router.post('/google', async (req, res) => {
   const { googleId, email, name, imageUrl } = req.body
 
   try {
-    // Save the user in your database here.
-    // If the user logs in using the same email, they will only be saved once.
+    // Check if the user already exists in the database
+    // let user = await User.findOne({ googleId })
+    let user = await User.findOne({ email })
+    // If the user doesn't exist, create a new user
+    if (!user) {
+      // user = new User({ googleId, email, name, imageUrl })
+      user = new User({ email, name, imageUrl })
+      await user.save()
+    }
 
-    res.json({
-      googleId,
-      email,
-      name,
-      imageUrl,
-    })
+    res.json(user)
   } catch (error) {
     res
       .status(400)

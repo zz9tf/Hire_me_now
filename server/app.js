@@ -7,6 +7,8 @@ var logger = require('morgan')
 var cors = require('cors')
 const { OAuth2Client } = require('google-auth-library')
 require('dotenv').config()
+const connectMongoose = require('./config/mongoose')
+connectMongoose()
 
 var indexRouter = require('./routes/index')
 var usersRouter = require('./routes/users')
