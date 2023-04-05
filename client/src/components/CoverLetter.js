@@ -79,14 +79,13 @@ class CoverLetter extends Component {
         this.setState({ isLoading: false })
       })
   }
-  
+
 
   handleGenerateButtonClick = (e) => {
     console.log('clicked')
-    const profile = useSelector((state) => state.google.profile)
+    const { profile } = this.props
 
-
-    console.log("profile", profile)
+    console.log('profile', profile)
     if (!profile) {
       e.preventDefault()
       this.setState({ isModalOpen: true }) // Open the modal
@@ -386,4 +385,4 @@ class CoverLetter extends Component {
 
 // export default CoverLetter
 
-export default connect(mapStateToProps)(CoverLetter);
+export default connect(mapStateToProps)(CoverLetter)
