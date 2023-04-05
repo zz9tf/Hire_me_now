@@ -57,7 +57,6 @@ function GoogleLoginButton({ onLogin }) {
 
   return (
     <div>
-      {/* <h2>React Google Login</h2> */}
       <br />
       <br />
       {profile && (

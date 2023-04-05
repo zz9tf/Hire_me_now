@@ -28,7 +28,7 @@ export const postUserData = (profile) => {
   return (dispatch) => {
     axios
       .post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/google`, {
-        // googleId: profile.id,
+        googleId: profile.id,
         email: profile.email,
         name: profile.name,
         imageUrl: profile.picture,

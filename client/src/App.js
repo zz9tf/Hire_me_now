@@ -9,6 +9,7 @@ import Footer from './components/Footer'
 import HomeCarousel from './components/HomeCarousel'
 import FunctionBorders from './components/FunctionBorders'
 import Login from './components/Login'
+import Account from './components/Account'
 
 
 function App() {
@@ -35,18 +36,21 @@ function App() {
           <Route path="/contact">
             <Contact />
           </Route>
+          <Route path="/account">
+            <Account />
+          </Route>
           <Route path="/coverletter">
             <CoverLetter />
           </Route>
           <Route path="/writinghelper">
             <WritingHelper />
           </Route>
-          <Route path="/login">
+          {/* <Route path="/login">
             <Login />
           </Route>
           <Route path="/signup">
             <SignUp />
-          </Route>
+          </Route> */}
         </Switch>
       </Router>
       <Footer></Footer>
