@@ -60,18 +60,23 @@ function GoogleLoginButton({ onLogin }) {
       {/* <h2>React Google Login</h2> */}
       <br />
       <br />
-      {profile && (
+      {/* {profile && (
         <button className="logoutButton" onClick={logOut}>
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
             alt="Google logo"
-            width={17}
-            marginRight={10}
-            style={{ marginRight: '5px' }}
+            width={20}
           />
           Log out
         </button>
+      )} */}
+      {profile && (
+        <div className="logoutButton" onClick={logOut} title="Click to Logout">
+          Hi, 
+          <span className="userName"> {profile.name}</span>
+        </div>
       )}
+
       {!profile && (
         <button className="loginButton" onClick={() => login()}>
           <img
