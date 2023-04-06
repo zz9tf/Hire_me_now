@@ -65,7 +65,9 @@ function GoogleLoginButton({ onLogin }) {
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
             alt="Google logo"
-            width={20}
+            width={17}
+            marginRight={10}
+            style={{ marginRight: '5px' }}
           />
           Log out
         </button>
@@ -75,7 +77,8 @@ function GoogleLoginButton({ onLogin }) {
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
             alt="Google logo"
-            width={20}
+            width={17}
+            style={{ marginRight: '5px' }}
           />
           Sign in
         </button>

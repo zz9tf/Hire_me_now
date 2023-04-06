@@ -5,7 +5,7 @@ import slider1Dec1 from '../img/cl_carousel.png';
 import slider2Dec2 from '../img/cv_carousel.png'
 import slider1Dec2 from '../img/decoration2.png';
 import { Link } from 'react-router-dom';
-
+import 'font-awesome/css/font-awesome.min.css';
 
 
 function HomeCarousel() {
@@ -17,13 +17,14 @@ function HomeCarousel() {
       title: "Ignite careers with captivating cover letters.",
       description: "We are your perfect writing helper for resumes and cover letters. Choose from several templates and follow easy prompts to create the perfect job-ready resume effortlessly.",
       buttonText: "Write Coverletters",
+      buttonDescription: "Unlock success with AI-crafted cover letters",
       highlightedWord: "Ignite",
       link: "/coverletter",
     },
     {
       id: 2,
       imageUrls: [slider2Dec2],
-      backgroundColor: "#F6E8EA",
+      backgroundColor: "#E8EDFA",
       title: "Your Resume, Could be Outstanding.",
       description: "We are your perfect writing helper for resumes and cover letters. Choose from several templates and follow easy prompts to create the perfect job-ready resume effortlessly.",
       buttonText: "Build Resume",
@@ -66,7 +67,7 @@ function HomeCarousel() {
             className="carousel-slide"
             style={{
               backgroundColor: slide.backgroundColor,
-              height: "600px",
+              height: "525px",
             }}
           >
             <div className="image-container">
@@ -78,17 +79,15 @@ function HomeCarousel() {
               <div className="caption-right">
                 <h3>
                   {slide.title}
-                {/* {slide.title.split(' ').map((word, index) => {
-                    if (word === slide.highlightedWord) {
-                      return <span key={index} className="highlighted-word">{word} </span>;
-                    }
-                    return <span key={index}>{word} </span>;
-                  })} */}
                 </h3>
                 <p>{slide.description}</p>
                 <Link to={slide.link}>
                   <button>{slide.buttonText}</button>
                 </Link>
+                <p className="buttonDescription">
+                  <i className="fa fa-arrow-up" aria-hidden="true" style={{ marginRight: '6px', color:"rgba(116, 82, 255, 1)" }}></i>
+                  {slide.buttonDescription}
+                </p>
               </div>
             </div>
           </div>

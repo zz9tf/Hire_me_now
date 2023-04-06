@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet'
 import NavBar from './components/Navbar'
 import Contact from './components/Contact'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CoverLetter from './components/CoverLetter'
 import WritingHelper from'./components/WritingHelper'
 import SignUp from './components/SignUp'
@@ -21,37 +21,27 @@ function App() {
           <link rel="canonical" href="http://mysite.com/example" />
           <meta name="description" content="Testing" />
         </Helmet>
-        <div>
+       <div>
           <NavBar className="NavBar"></NavBar>
         </div>
 
-        <Switch>
-          <Route exact path="/">
-            <div>
-              <HomeCarousel></HomeCarousel>
-              <FunctionBorders></FunctionBorders>
-            </div>
-          </Route>
-          <Route path="/contact">
-            <Contact />
-          </Route>
-          <Route path="/coverletter">
-            <CoverLetter />
-          </Route>
-          <Route path="/writinghelper">
-            <WritingHelper />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/signup">
-            <SignUp />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/" element={
+            <>
+              <HomeCarousel />
+              <FunctionBorders />
+            </>
+          } />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/coverletter" element={<CoverLetter />} />
+          <Route path="/writinghelper" element={<WritingHelper />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Routes>
       </Router>
       <Footer></Footer>
     </div>
-  )
+  );
 }
 
 export default App
