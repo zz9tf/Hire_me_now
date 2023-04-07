@@ -7,27 +7,42 @@
 }
 
 .cl--column {
-  width: 45%;
+  width: 50%;
   margin: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 0 30px 60px 30px;
+  /* justify-content: space-between; */
+  padding: 10px 50px 100px 50px;
 }
 
 .cl--form-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .cl--form-group label {
   margin-bottom: 5px;
+
 }
 
+.info-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info-row .cl--form-group {
+  flex:1;
+}
+
+.info-row .cl--form-group:not(:last-child) {
+  margin-right: -3rem;
+}
+
+
 .input-lable {
-  margin-top:20px;
-  font-size: 12pt;
+  margin-top:17px;
+  font-size: 11pt;
 }
 
 .cl--form-group input,
@@ -47,7 +62,7 @@
   color: white;
   border: none;
   border-radius: 20px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   align-self: center;
@@ -75,7 +90,7 @@
 }
 
 .cl-check-input {
-  font-size: 18px; 
+  font-size: 15px; 
   line-height: 1.5; 
 }
 .cl-title {
@@ -94,7 +109,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); 
   border-radius: 4px; 
   font-family: 'Times New Roman', serif; 
-  font-size: 18px; 
+  font-size: 16px; 
   line-height: 1.5; 
   /* box-shadow: 0 2px 4px #4cb4b4;
   border-radius: 5px; */
@@ -108,14 +123,14 @@
 .info-title {
   font-weight:bold;
   color:#4cb4b4;
-  margin-top: 30px;
-  font-size: 20pt;
+  margin-top: 20px;
+  font-size: 16pt;
 }
 
 .column-title {
-  padding-top: 60px;
+  padding-top: 50px;
   margin-top: 0px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   text-align: center;
   font-weight:bold;
   color:#5f5f5f;
@@ -137,20 +152,20 @@
 
 .stepNum {
   font-weight:bold;
-  font-size: 36pt;
+  font-size: 30pt;
   color:#85858587;
 }
 
 .cl-content-label {
   color:#4cb4b4;
   font-weight:bold;
-  margin-bottom: 15px;
+  margin-bottom: 14px;
 }
 
 .cl-check-label {
   color:#4cb4b4;
   font-weight:bold;
-  margin-bottom: 15px;
+  margin-bottom: 14px;
 }
 
 .cl-input input::placeholder {
