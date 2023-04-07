@@ -60,8 +60,6 @@ router.post(
     if (event.type === 'checkout.session.completed') {
       const session = event.data.object
       const googleId = session.metadata.googleId
-
-      console.log('Retrieved session:', session)
       console.log('Retrieved metadata:', session.metadata)
 
       console.log('Retrieved googleId:', googleId)
