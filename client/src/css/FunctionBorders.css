@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   text-decoration: none;
-  margin: 100px 100px 100px 100px;
+  margin: 40px 100px;
 }
 
 .border-item {
@@ -14,11 +14,11 @@
   text-decoration: none;
   align-items: center;
   justify-content: center;
-  padding: 25px;
-  padding-top: 100px;
+  padding: 20px;
+  padding-top: 80px;
   width: 20%;
   margin: 10px;
-  height: 320px;
+  height: 280px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   cursor: pointer;
@@ -30,8 +30,8 @@
  
   color: rgb(86, 86, 86);
   font-weight: bold;
-  font-size: 14pt;
-  line-height: 30px;
+  font-size: 13pt;
+  line-height: 25px;
   text-decoration: none;
   margin: 0;
 }
@@ -39,8 +39,8 @@
 .image-container {
 
   width: 100%;
-  margin-top: 60px;
-  padding-bottom: 30px;
+  margin-top: 50px;
+  padding-bottom: 25px;
   height: 40%;
   display: flex;
   justify-content: center;
