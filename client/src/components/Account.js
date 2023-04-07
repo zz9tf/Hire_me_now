@@ -16,14 +16,10 @@ function Account() {
       }}
     >
       <Card style={{ width: '30rem', padding: '2rem', textAlign: 'center' }}>
-        <h1>Account</h1>
         {user ? (
           <>
-            <p>Welcome, {user.name}!</p>
+            <h3>Welcome, {user.name}!</h3>
             <p>Pay $10 to use this app 10 times.</p>
-            {/* <Button color="primary" onClick={handlePayment}>
-              Pay $10
-            </Button> */}
             <ProductDisplay user={user} />
           </>
         ) : (

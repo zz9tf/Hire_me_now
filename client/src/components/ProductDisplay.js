@@ -5,6 +5,8 @@ const Product = ({ user }) => {
     e.preventDefault()
 
     try {
+      console.log('USER in frontend:', user)
+      console.log('googleId in frontend:', user.id)
       const response = await fetch(
         `${process.env.REACT_APP_BACKEND_URL}/api/payment/create-checkout-session`,
         {
@@ -12,7 +14,7 @@ const Product = ({ user }) => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ userId: user.googleId }),
+          body: JSON.stringify({ googleId: user.id }),
         }
       )
 
@@ -29,13 +31,9 @@ const Product = ({ user }) => {
   return (
     <section>
       <div className="product">
-        <img
-          src="https://i.imgur.com/EHyR2nP.png"
-          alt="The cover of Stubborn Attachments"
-        />
         <div className="description">
-          <h3>Stubborn Attachments</h3>
-          <h5>$20.00</h5>
+          <h5>App usage</h5>
+          <h5>$10.00</h5>
         </div>
       </div>
       <form onSubmit={handleSubmit}>
