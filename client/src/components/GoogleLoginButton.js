@@ -59,7 +59,7 @@ function GoogleLoginButton({ onLogin }) {
     <div>
       <br />
       <br />
-      {profile && (
+      {/* {profile && (
         <button className="logoutButton" onClick={logOut}>
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
@@ -68,13 +68,21 @@ function GoogleLoginButton({ onLogin }) {
           />
           Log out
         </button>
+      )} */}
+      {profile && (
+        <div className="logoutButton" onClick={logOut} title="Click to Logout">
+          Hi, 
+          <span className="userName"> {profile.name}</span>
+        </div>
       )}
+
       {!profile && (
         <button className="loginButton" onClick={() => login()}>
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
             alt="Google logo"
-            width={20}
+            width={17}
+            style={{ marginRight: '5px' }}
           />
           Sign in
         </button>

@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import GoogleLoginButton from './GoogleLoginButton'
 import '../css/LoginModal.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 function LoginModal({ isOpen, onClose, onLogin }) {
   if (!isOpen) {
@@ -11,11 +13,15 @@ function LoginModal({ isOpen, onClose, onLogin }) {
   return ReactDOM.createPortal(
     <div className="login-modal-overlay">
       <div className="login-modal">
-        <h2>Please Log In to Continue</h2>
-        <GoogleLoginButton onLogin={onClose} />
-        <button className="close-button" onClick={onClose}>
+        <h2 className="title">Please Log In to Continue</h2>
+        <div className="googleLogin-button">
+          <GoogleLoginButton onLogin={onClose} />
+        </div>
+        {/* <button className="close-button" onClick={onClose}>
           Close
-        </button>
+        </button> */}
+          <FontAwesomeIcon icon={faTimes} className="close-icon" onClick={onClose} />
+
       </div>
     </div>,
     document.getElementById('modal-root')

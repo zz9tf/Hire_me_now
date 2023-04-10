@@ -3,7 +3,7 @@
   display: inline-block;
   color: #565656;
   width: 100px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
   border:white;
   /* box-shadow: 1px 1px 1px grey; */
   white-space: nowrap;
@@ -21,7 +21,7 @@
   display: inline-block;
   color: #565656;
   width: 100px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
   border:white;
   /* box-shadow: 1px 1px 1px grey; */
   white-space: nowrap;
@@ -41,3 +41,8 @@
   text-decoration-thickness: 3px;
   text-decoration-color: rgba(212, 244, 239, 1);
 }
+
+.userName {
+  color: #4cb4b4;
+}
+

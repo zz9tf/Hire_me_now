@@ -183,33 +183,35 @@ class CoverLetter extends Component {
           </h2>
           <Form onSubmit={this.handleSubmit}>
             <h3 className="info-title">Personal Information</h3>
-            <Form.Group controlId="user-name">
-              <Form.Label className="input-lable">
-                Your Name
-                <span className="required-asterisk">*</span>
-              </Form.Label>
-              <Form.Control
-                type="text"
-                name="userName"
-                value={submitForm.userName}
-                onChange={this.handleInputChange}
-                required
-              />
-            </Form.Group>
-            <Form.Group controlId="contact-information">
-              <Form.Label className="input-lable">
-                Contact Information
-                <span className="required-asterisk">*</span>
-              </Form.Label>
-              <Form.Control
-                type="text"
-                name="contactInformation"
-                placeholder="Email or Phone Number"
-                value={submitForm.contactInformation}
-                onChange={this.handleInputChange}
-                required
-              />
-            </Form.Group>
+            <div className="info-row">
+              <Form.Group controlId="user-name" className="col-md-5">
+                <Form.Label className="input-lable">
+                  Your Name
+                  <span className="required-asterisk">*</span>
+                </Form.Label>
+                <Form.Control
+                  type="text"
+                  name="userName"
+                  value={submitForm.userName}
+                  onChange={this.handleInputChange}
+                  required
+                />
+              </Form.Group>
+              <Form.Group controlId="contact-information" className="col-md-6">
+                <Form.Label className="input-lable">
+                  Contact Information
+                  <span className="required-asterisk">*</span>
+                </Form.Label>
+                <Form.Control
+                  type="text"
+                  name="contactInformation"
+                  placeholder="Email or Phone Number"
+                  value={submitForm.contactInformation}
+                  onChange={this.handleInputChange}
+                  required
+                />
+                </Form.Group>
+              </div>
             <Form.Group controlId="Skills">
               <Form.Label className="input-lable">
                 Skills
@@ -221,7 +223,7 @@ class CoverLetter extends Component {
                 value={submitForm.Skills}
                 onChange={this.handleInputChange}
                 required
-                style={{ height: '8rem' }}
+                style={{ height: '5rem' }}
               />
             </Form.Group>
             <Form.Group controlId="work-experience">
@@ -235,7 +237,7 @@ class CoverLetter extends Component {
                 value={submitForm.workExperience}
                 onChange={this.handleInputChange}
                 required
-                style={{ height: '8rem' }}
+                style={{ height: '10rem' }}
               />
             </Form.Group>
             <br />
@@ -254,34 +256,35 @@ class CoverLetter extends Component {
                 required
               />
             </Form.Group>
+            <div className="info-row">
+              <Form.Group controlId="job-title" className="col-md-6">
+                <Form.Label className="input-lable">
+                  Job Title
+                  <span className="required-asterisk">*</span>
+                </Form.Label>
+                <Form.Control
+                  type="text"
+                  name="jobTitle"
+                  value={submitForm.jobTitle}
+                  onChange={this.handleInputChange}
+                  required
+                />
+              </Form.Group>
 
-            <Form.Group controlId="job-title">
-              <Form.Label className="input-lable">
-                Job Title
-                <span className="required-asterisk">*</span>
-              </Form.Label>
-              <Form.Control
-                type="text"
-                name="jobTitle"
-                value={submitForm.jobTitle}
-                onChange={this.handleInputChange}
-                required
-              />
-            </Form.Group>
-
-            <Form.Group controlId="company-location">
-              <Form.Label className="input-lable">
-                Company Location
-                <span className="required-asterisk">*</span>
-              </Form.Label>
-              <Form.Control
-                type="text"
-                name="companyLocation"
-                value={submitForm.companyLocation}
-                onChange={this.handleInputChange}
-                required
-              />
-            </Form.Group>
+              <Form.Group controlId="company-location" className="col-md-5">
+                <Form.Label className="input-lable">
+                  Company Location
+                  <span className="required-asterisk">*</span>
+                </Form.Label>
+                <Form.Control
+                  type="text"
+                  name="companyLocation"
+                  value={submitForm.companyLocation}
+                  onChange={this.handleInputChange}
+                  required
+                />
+              </Form.Group>
+            </div>
 
             <Form.Group controlId="job-description">
               <Form.Label className="input-lable">
@@ -350,7 +353,7 @@ class CoverLetter extends Component {
                 value={generatedCoverLetter}
                 onChange={this.handleModifyCoverLetter}
                 required
-                style={{ height: '65rem' }}
+                style={{ height: '71rem' }}
               />
             </Form.Group>
             <button className="cl--button center-button" onClick={this.showPDF}>
