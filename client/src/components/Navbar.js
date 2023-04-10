@@ -23,6 +23,7 @@ function NavBar() {
         <div className="navbar__login">
           <GoogleLoginButton />
         </div>
+
         {/* <div className="navbar__account">
           <a href="/account">Account</a>
         </div> */}

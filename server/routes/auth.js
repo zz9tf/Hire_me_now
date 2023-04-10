@@ -7,12 +7,11 @@ router.post('/google', async (req, res) => {
 
   try {
     // Check if the user already exists in the database
-    // let user = await User.findOne({ googleId })
-    let user = await User.findOne({ email })
+    let user = await User.findOne({ googleId })
     // If the user doesn't exist, create a new user
     if (!user) {
-      // user = new User({ googleId, email, name, imageUrl })
-      user = new User({ email, name, imageUrl })
+      user = new User({ googleId, email, name, imageUrl })
+      
       await user.save()
     }
 
