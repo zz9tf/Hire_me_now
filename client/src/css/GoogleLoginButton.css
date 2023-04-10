@@ -46,3 +46,18 @@
   color: #4cb4b4;
 }
 
+.userDropdown {
+  color:white;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.userDropdown:hover {
+  color: #4cb4b4;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-decoration-color: rgba(212, 244, 239, 1);
+}
+
+

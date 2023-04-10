@@ -23,16 +23,20 @@ function NavBar() {
         <div className="navbar__login">
           <GoogleLoginButton />
         </div>
-        <div className="navbar__donate"> 
+        {/* <div className="navbar__account">
+          <a href="/account">Account</a>
+        </div> */}
+
+        <div className="navbar__donate">
           <a href="https://www.buymeacoffee.com" target="_blank">
             <img
               className="coffeeImage"
               src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg"
               alt="Buy me a coffee"
-            /> Donate
+            />{' '}
+            Donate
           </a>
         </div>
-
       </div>
     </div>
   )

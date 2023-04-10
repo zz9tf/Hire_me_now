@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { googleLogout, useGoogleLogin } from '@react-oauth/google'
+import { Dropdown } from 'react-bootstrap';
 import axios from 'axios'
 import '../css/GoogleLoginButton.css'
 import {
@@ -70,11 +71,53 @@ function GoogleLoginButton({ onLogin }) {
           Log out
         </button>
       )} */}
-      {profile && (
-        <div className="logoutButton" onClick={logOut} title="Click to Logout">
-          Hi, 
-          <span className="userName"> {profile.name}</span>
-        </div>
+      {profile &&
+        // (
+        // <div className="logoutButton" onClick={logOut} title="Click to Logout">
+        //   Hi, 
+        //   <span className="userName"> {profile.name}</span>
+        // </div>
+        (<Dropdown className="logoutButton userDropdown">
+        <Dropdown.Toggle variant="light" className="userDropdown" id="dropdown-basic"
+          style={{
+            backgroundColor: "white",
+            border: "none",
+            fontSize: "14px",
+            fontWeight: "bold",
+            color: "#565656",
+          }}>
+            Hi, <span className="userName">{profile.name}</span>
+          </Dropdown.Toggle>
+
+        <Dropdown.Menu className="logoutButton"
+          style={{
+            border: "none",
+            color: "#565656",
+            backgroundColor:"rgba(212, 244, 239, 0.5)"}}>
+            <Dropdown.Item href="/account"
+              style={{
+                fontSize: "13px",
+                fontWeight: "bold",
+                color: "#565656",
+              }}>
+              Account Profile
+            </Dropdown.Item>
+            <Dropdown.Item onClick={logOut}
+              style={{
+                fontSize: "13px",
+                fontWeight: "bold",
+                color: "#565656",
+              }}>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                alt="Google logo"
+                width={15}
+                style={{ marginRight: '5px' }}
+              />
+              Log out
+            </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
       )}
 
       {!profile && (
