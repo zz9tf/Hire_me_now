@@ -15,7 +15,7 @@ router.post('/create-checkout-session', async (req, res) => {
       line_items: [
         {
           // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-          price: 'price_1Mta8yGpioqUIppnsVONSzUU',
+          price: 'price_1MvRpyGpioqUIppnLp47tyT6',
           quantity: 1,
         },
       ],
@@ -71,7 +71,7 @@ router.post(
           return
         }
 
-        user.usageCount += 10
+        user.usageCount += 3
         await user.save()
 
         console.log('Usage tokens updated successfully')
