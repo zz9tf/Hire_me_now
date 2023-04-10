@@ -23,9 +23,10 @@ function NavBar() {
         <div className="navbar__login">
           <GoogleLoginButton />
         </div>
-        <div className="navbar__account">
+
+        {/* <div className="navbar__account">
           <a href="/account">Account</a>
-        </div>
+        </div> */}
 
         <div className="navbar__donate">
           <a href="https://www.buymeacoffee.com" target="_blank">
