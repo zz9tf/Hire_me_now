@@ -1,3 +1,4 @@
+// console.log("fix conflicts")
 import React, { Component, useState } from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
@@ -52,6 +53,22 @@ class CoverLetter extends Component {
     this.closeModal = this.closeModal.bind(this)
   }
 
+  async decrementUsageCount() {
+    const { profile } = this.props
+    console.log('profile', profile)
+    try {
+      const response = await axios.put(
+        `${process.env.REACT_APP_BACKEND_URL}/api/user/decrementUsageCount`,
+        {
+          googleId: profile.id,
+        }
+      )
+      console.log(response.data)
+    } catch (error) {
+      console.error('Error decrementing usage count:', error)
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault()
     // Logic to generate the cover letter goes here
@@ -72,6 +89,7 @@ class CoverLetter extends Component {
           generatedCoverLetter: newCoverLetter,
           isLoading: false,
         })
+        this.decrementUsageCount()
       })
       .catch((error) => {
         console.log('Error posting data to generate cover letter: ', error)
@@ -79,7 +97,6 @@ class CoverLetter extends Component {
         this.setState({ isLoading: false })
       })
   }
-
 
   handleGenerateButtonClick = (e) => {
     console.log('clicked')
@@ -194,8 +211,8 @@ class CoverLetter extends Component {
                   onChange={this.handleInputChange}
                   required
                 />
-                </Form.Group>
-              </div>
+              </Form.Group>
+            </div>
             <Form.Group controlId="Skills">
               <Form.Label className="input-lable">
                 Skills
