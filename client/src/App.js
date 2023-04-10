@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet'
 import NavBar from './components/Navbar'
 import Contact from './components/Contact'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import CoverLetter from './components/CoverLetter'
 import WritingHelper from'./components/WritingHelper'
 import SignUp from './components/SignUp'

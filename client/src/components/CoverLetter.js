@@ -1,3 +1,4 @@
+// console.log("fix conflicts")
 import React, { Component, useState } from 'react'
 import { connect } from 'react-redux'
 import axios from 'axios'
@@ -210,8 +211,8 @@ class CoverLetter extends Component {
                   onChange={this.handleInputChange}
                   required
                 />
-                </Form.Group>
-              </div>
+              </Form.Group>
+            </div>
             <Form.Group controlId="Skills">
               <Form.Label className="input-lable">
                 Skills
