@@ -5,7 +5,7 @@ export default function Coffee() {
     <a
       className="buyButton"
       target="_blank"
-      href="https://www.buymeacoffee.com"
+      href="https://www.buymeacoffee.com/kuakua"
     >
       <img
         className="coffeeImage"
