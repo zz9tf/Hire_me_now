@@ -29,7 +29,7 @@ function NavBar() {
         </div> */}
 
         <div className="navbar__donate">
-          <a href="https://www.buymeacoffee.com" target="_blank">
+          <a href="https://www.buymeacoffee.com/kuakua" target="_blank">
             <img
               className="coffeeImage"
               src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg"

@@ -56,7 +56,9 @@ function Footer() {
                   <a href="/contact">Contact Us</a>
                 </li>
                 <li>
-                  <a href="https://www.buymeacoffee.com">Buy Me a Coffee</a>
+                  <a href="https://www.buymeacoffee.com/kuakua">
+                    Buy Me a Coffee
+                  </a>
                 </li>
               </ul>
             </div>
