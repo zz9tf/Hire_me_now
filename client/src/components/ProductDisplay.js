@@ -32,8 +32,17 @@ const Product = ({ user }) => {
     <section>
       <div className="product">
         <div className="description">
-          <h5>App usage</h5>
-          <h5>$10.00</h5>
+          <h5 style={{ color: "#565656", marginTop:"30px", marginBottom:"40px"}}
+          >Hi, <span style={{ color: "#4cb4b4", fontWeight: "bold" }}>{user.name}</span></h5>
+          <h3>You have {user.usageCount} left</h3>
+          
+          <h5
+            style={{color:"#4cb4b4", fontSize:"12pt", marginBottom:"5px"}}
+          >Wanna more usage?</h5>
+          <h5
+            style={{ color: "#565656", fontSize: "18pt" }}>Pay
+            <span style={{ fontWeight: "bold", fontSize: "20pt" }}> $3.00</span> for
+            <span style={{fontWeight:"bold", fontSize:"20pt"}}> 3</span> more times</h5>
         </div>
       </div>
       <form onSubmit={handleSubmit}>

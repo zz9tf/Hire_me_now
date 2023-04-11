@@ -1,0 +1,56 @@
+.info-card {
+    background-color: white;
+    border-radius: 5px;
+    border:white;
+    /* box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2); */
+    margin: 0 0 20px;
+    padding: 20px;
+    width: 100%;
+}
+
+.info-card h3 {
+    font-weight:bold;
+    color:#4cb4b4;
+    font-size: 18pt;
+    margin-top:10px;
+    margin-bottom:25px;
+  }
+.info-card label {
+    color: #565656;
+    font-size: 11pt;
+    margin-top: 20px;;
+  }
+
+.card button {
+background-color: #4cb4b4;
+font-weight:bold;
+color: white;
+border:none;
+border-radius: 15px;
+font-size: 13pt;
+padding: 3px 30px;
+margin-top:20px;
+}
+
+.card button:hover {
+background-color: white;
+border: 3px solid #4cb4b4;
+color: #4cb4b4;
+}
+
+.advertise {
+    background-color: rgba(212, 244, 239, 1);
+    border:white;
+    /* box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2); */
+    margin: 0 0 20px;
+    padding: 20px;
+    width: 100%;
+}
+
+.advertise h3 {
+    font-weight:bold;
+    color: #565656;
+    font-size: 18pt;
+    margin-top:10px;
+    margin-bottom:25px;
+  }
