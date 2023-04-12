@@ -88,11 +88,11 @@ function GoogleLoginButton({ onLogin }) {
             Hi, <span className="userName">{profile.name}</span>
           </Dropdown.Toggle>
 
-        <Dropdown.Menu className="logoutButton"
+        <Dropdown.Menu className="logoutButton userDropdown navbar__account"
           style={{
             border: "none",
             color: "#565656",
-            backgroundColor:"rgba(212, 244, 239, 0.5)"}}>
+            backgroundColor:"rgb(236, 248, 247, 0.75)"}}>
             <Dropdown.Item href="/account"
               style={{
                 fontSize: "13px",
@@ -100,6 +100,14 @@ function GoogleLoginButton({ onLogin }) {
                 color: "#565656",
               }}>
               Account Profile
+            </Dropdown.Item>
+            <Dropdown.Item href="/contact"
+                style={{
+                  fontSize: "13px",
+                  fontWeight: "bold",
+                  color: "#565656",
+                }}>
+                Contact Us
             </Dropdown.Item>
             <Dropdown.Item onClick={logOut}
               style={{

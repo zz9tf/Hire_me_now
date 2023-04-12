@@ -36,10 +36,10 @@
 
 .loginButton:hover,
 .logoutButton:hover {
-  color:#4cb4b4;
+  /* color:#4cb4b4; */
   text-decoration: underline;
-  text-decoration-thickness: 3px;
-  text-decoration-color: rgba(212, 244, 239, 1);
+  text-decoration-thickness: 2px;
+  text-decoration-color: #4cb4b4;
 }
 
 .userName {
@@ -60,4 +60,16 @@
   text-decoration-color: rgba(212, 244, 239, 1);
 }
 
+.navbar__account a {
+color:#4cb4b4;
+text-decoration: underline;
+text-decoration-thickness: 3px;
+text-decoration-color: rgba(212, 244, 239, 1);
+}
 
+.navbar__account a:hover {
+color:#4cb4b4;
+text-decoration: underline;
+text-decoration-thickness: 2px;
+text-decoration-color: #4cb4b4;
+}
