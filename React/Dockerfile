@@ -1,6 +1,6 @@
 FROM node:19-slim
 
-WORKDIR /CLIENT
+WORKDIR /react
 
 COPY package.json .
 

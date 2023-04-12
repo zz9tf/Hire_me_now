@@ -1,13 +1,14 @@
 FROM python:3.11-slim
 
-WORKDIR /Django
+ENV PYTHONUNBUFFERED=1
 
-COPY requirement.txt .
+WORKDIR /django
 
-RUN pip install -r requirement.txt
+COPY requirements.txt .
+RUN pip3 install -r requirements.txt
 
 COPY . .
 
 EXPOSE 8000
 
-CMD ["python", "./hmn_project/manage.py", "runserver"]
+CMD ["python3", "./hmn_project/manage.py", "runserver", "0.0.0.0:8000"]

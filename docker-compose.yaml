@@ -1,21 +1,32 @@
 version: '3'
 
 services:
-  React:
-    build: ./React
+  react:
+    image: zz9tf/react
+    build: ./react
     ports:
       - "3000:3000"
     volumes:
-      - ./React:/app
-      - ./app/node_modules
-  Express:
-    build: ./Express
+      - ./react:/app
+    container_name: react_container
+    env_file: ./react/.env
+
+  express:
+    image: zz9tf/express
+    build: ./express
     ports:
       - "9000:9000"
     volumes:
-      - ./Express:/app
-      - ./app/node_modules
-  Django:
-    build: ./Django
+      - ./express:/app
+    container_name: express_container
+    env_file: ./express/.env
+  
+  django:
+    image: zz9tf/django
+    build: ./django
     ports:
       - "8000:8000"
+    volumes:
+      - ./django:/app
+    container_name: django_container
+    env_file: ./django/.env

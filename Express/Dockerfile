@@ -2,11 +2,11 @@ FROM node:19-slim
 
 RUN npm install -g nodemon
 
-WORKDIR /EXPRESS
+WORKDIR /express
 
 COPY package.json .
 
-RUN npm insall
+RUN npm install
 
 COPY . .
 

@@ -6,9 +6,10 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-BASE_DIR = join(dirname(dirname(abspath(__file__))), 'hmn_project')
+BASE_DIR = join(dirname(dirname(dirname(abspath(__file__)))))
+print(BASE_DIR)
 env = environ.Env()
-environ.Env.read_env(join(BASE_DIR, '.env'))
+# environ.Env.read_env(join(BASE_DIR, '.env'))
 
 # Create Homepage
 def home(request):
