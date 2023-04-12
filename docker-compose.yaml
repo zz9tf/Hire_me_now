@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  React:
+    build: ./React
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./React:/app
+      - ./app/node_modules
+  Express:
+    build: ./Express
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./Express:/app
+      - ./app/node_modules
+  Django:
+    build: ./Django
+    ports:
+      - "8000:8000"

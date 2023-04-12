@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block screen %}
+
+<div class="container">
+    </br></br>
+
+    {% if question %}
+        <h3> Question: {{ question|linebreaks }} </h3>
+        <br/><br/>
+    {% endif %}
+    <div class="card">
+        <div class="card-header">
+          Prompt response
+        </div>
+        <div class="card-body">
+          {% if response %}
+            {{ response|linebreaks }} </br>
+          {% endif %}
+        </div>
+      </div>
+    
+      <br/><br/>
+    
+      <form method=POST action="{% url 'home' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+          <input type="text" class="form-control" id="prompt-input" placeholder="Ask ChatGPT A Question" name="question">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+
+
+{% endblock %}
