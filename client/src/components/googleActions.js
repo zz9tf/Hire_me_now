@@ -32,6 +32,10 @@ export const postUserData = (profile) => {
         email: profile.email,
         name: profile.name,
         imageUrl: profile.picture,
+        contactInfo: '', // Add default blank value
+        skills: '', // Add default blank value
+        address: '', // Add default blank value
+        workExperience: '', // Add default blank value
       })
       .then((response) => {
         console.log('User data posted to backend:', response)
@@ -42,6 +46,7 @@ export const postUserData = (profile) => {
       })
   }
 }
+
 
 
 export const fetchUserProfile = (googleId) => {
