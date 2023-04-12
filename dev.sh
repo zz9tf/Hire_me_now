@@ -15,9 +15,9 @@ if [[ $1 == "--help" || $1 == "-h" ]]; then
     echo ""
 else
     if [[ $1 == "--rebuild" || $1 == "-r" ]]; then
-        docker rm -vf $(docker ps -aq)
-        docker rmi -f $(docker images -aq)
-        docker-compose up
+        sudo docker rm -vf $(docker ps -aq)
+        sudo docker rmi -f $(docker images -aq)
+        sudo docker-compose up
 
     elif [[ $1 == "--install" || $1 == "-i" ]]; then
         cd react && npm install --save
@@ -26,7 +26,7 @@ else
     elif [[ $1 == "django" ]]; then
         source activate hire_me_now
         pip install $2
-        docker-compose up -d django
+        sudo docker-compose up -d django
 
     elif [[ $1 == "react" ]]; then
         cd react && npm install $2 --save
@@ -35,7 +35,7 @@ else
         cd express && npm install $2 --save
 
     else
-        docker-compose up
+        sudo docker-compose up
 
     fi
 fi
