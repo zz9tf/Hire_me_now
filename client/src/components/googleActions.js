@@ -32,12 +32,32 @@ export const postUserData = (profile) => {
         email: profile.email,
         name: profile.name,
         imageUrl: profile.picture,
+        contactInfo: '', // Add default blank value
+        skills: '', // Add default blank value
+        address: '', // Add default blank value
+        workExperience: '', // Add default blank value
       })
       .then((response) => {
         console.log('User data posted to backend:', response)
       })
       .catch((error) => {
         console.log('Error posting user data to backend:', error)
+        console.log('Error detail reason:', error.response)
+      })
+  }
+}
+
+
+
+export const fetchUserProfile = (googleId) => {
+  return (dispatch) => {
+    axios
+      .get(`${process.env.REACT_APP_BACKEND_URL}/api/user/${googleId}`)
+      .then((response) => {
+        dispatch(setProfile(response.data))
+      })
+      .catch((error) => {
+        console.log('Error fetching user profile:', error)
         console.log('Error detail reason:', error.response)
       })
   }
