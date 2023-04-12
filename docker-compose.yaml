@@ -7,7 +7,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./react:/app
+      - ./react:/react
     container_name: react_container
     env_file: ./react/.env
 
@@ -17,7 +17,7 @@ services:
     ports:
       - "9000:9000"
     volumes:
-      - ./express:/app
+      - ./express:/express
     container_name: express_container
     env_file: ./express/.env
   
@@ -27,6 +27,6 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./django:/app
+      - ./django:/django
     container_name: django_container
     env_file: ./django/.env
