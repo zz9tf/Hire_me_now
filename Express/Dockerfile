@@ -1,8 +1,8 @@
 FROM node:19-slim
 
-RUN npm install -g nodemon
-
 WORKDIR /express
+
+RUN npm install -g nodemon
 
 COPY package.json .
 
