@@ -10,10 +10,14 @@ import {
   setProfile,
   logout,
   postUserData,
+  fetchUserProfile,
 } from '../components/googleActions'
 import { persistor } from './store'
+import { useNavigate } from 'react-router-dom'
+
 
 function GoogleLoginButton({ onLogin }) {
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const user = useSelector((state) => state.google.user)
   const profile = useSelector((state) => state.google.profile)
@@ -43,6 +47,7 @@ function GoogleLoginButton({ onLogin }) {
           console.log('what is res?', res.data)
           dispatch(setProfile(res.data))
           dispatch(postUserData(res.data))
+          dispatch(fetchUserProfile(res.data.id)) 
           console.log('profile:', profile)
           onLogin()
         })
@@ -54,6 +59,7 @@ function GoogleLoginButton({ onLogin }) {
     await persistor.purge() // wait for persisted state to be cleared
     googleLogout()
     dispatch(logout())
+    navigate('/')
   }
 
   return (

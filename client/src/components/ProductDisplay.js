@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
+
 
 const Product = ({ user }) => {
   const handleSubmit = async (e) => {
@@ -34,7 +36,7 @@ const Product = ({ user }) => {
         <div className="description">
           <h5 style={{ color: "#565656", marginTop:"30px", marginBottom:"40px"}}
           >Hi, <span style={{ color: "#4cb4b4", fontWeight: "bold" }}>{user.name}</span></h5>
-          <h3>You have {user.usageCount} left</h3>
+          <h3>You have {user.usageCount} times left to use this app</h3>
           
           <h5
             style={{color:"#4cb4b4", fontSize:"12pt", marginBottom:"5px"}}
@@ -59,8 +61,10 @@ const Message = ({ message }) => (
   </section>
 )
 
-export default function ProductDisplay({ user }) {
+export default function ProductDisplay() {
   const [message, setMessage] = useState('')
+  const user = useSelector((state) => state.google.profile)
+
 
   useEffect(() => {
     // Check to see if this is a redirect back from Checkout
@@ -78,4 +82,5 @@ export default function ProductDisplay({ user }) {
   }, [])
 
   return message ? <Message message={message} /> : <Product user={user} />
+
 }

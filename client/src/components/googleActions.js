@@ -42,3 +42,18 @@ export const postUserData = (profile) => {
       })
   }
 }
+
+
+export const fetchUserProfile = (googleId) => {
+  return (dispatch) => {
+    axios
+      .get(`${process.env.REACT_APP_BACKEND_URL}/api/user/${googleId}`)
+      .then((response) => {
+        dispatch(setProfile(response.data))
+      })
+      .catch((error) => {
+        console.log('Error fetching user profile:', error)
+        console.log('Error detail reason:', error.response)
+      })
+  }
+}

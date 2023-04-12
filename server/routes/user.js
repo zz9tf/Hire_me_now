@@ -19,4 +19,21 @@ router.put('/decrementUsageCount', async (req, res) => {
   }
 })
 
+
+
+router.get('/:googleId', async (req, res) => {
+  try {
+    const user = await User.findOne({ googleId: req.params.googleId })
+    if (user) {
+      res.json(user)
+    } else {
+      res.status(404).json({ message: 'User not found' })
+    }
+  } catch (error) {
+    console.error('Error fetching user:', error)
+    res.status(500).json({ message: 'Error fetching user' })
+  }
+})
+
 module.exports = router
+
