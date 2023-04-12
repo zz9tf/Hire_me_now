@@ -45,7 +45,7 @@ export default function ContactForm() {
             <p>Say something to start a live chat!</p>
           </div>
           <div className="contact-medium">
-            <p> demo@gmail.com</p>
+            <p> kuakuawow@gmail.com</p>
             <p>415 South St, Waltham, MA 02453</p>
             <Coffee />
           </div>
@@ -56,7 +56,7 @@ export default function ContactForm() {
             <a href="https://github.com">
               <FontAwesomeIcon icon={faGithub} />
             </a>
-            <a href="https://instagram.com">
+            <a href="https://instagram.com/kuakuawow">
               <FontAwesomeIcon icon={faInstagram} />
             </a>
           </div>

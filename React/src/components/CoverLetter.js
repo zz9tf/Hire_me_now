@@ -53,6 +53,33 @@ class CoverLetter extends Component {
     this.closeModal = this.closeModal.bind(this)
   }
 
+  async componentDidMount() {
+    const { profile } = this.props
+
+    if (profile) {
+      console.log('this profile', profile)
+      try {
+        const response = await axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/${profile.googleId}`
+        )
+        const userData = response.data
+
+        this.setState((prevState) => ({
+          submitForm: {
+            ...prevState.submitForm,
+            userName: userData.name || '',
+            contactInformation: userData.contactInfo || '',
+            Skills: userData.skills || '',
+            workExperience: userData.workExperience || '',
+          },
+        }))
+      } catch (error) {
+        console.log('Error fetching user profile:', error)
+        console.log('Error detail reason:', error.response)
+      }
+    }
+  }
+
   async decrementUsageCount() {
     const { profile } = this.props
     console.log('profile', profile)

@@ -87,12 +87,12 @@ function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="https://instagram.com">
+                  <a href="https://www.instagram.com/kuakuawow/">
                     <FontAwesomeIcon icon={faInstagram} />
                   </a>
                 </li>
                 <li>
-                  <a href="xx@brandeis.edu">
+                  <a href="kuakuawow@gmail.com">
                     <FontAwesomeIcon icon={faEnvelope} />
                   </a>
                 </li>

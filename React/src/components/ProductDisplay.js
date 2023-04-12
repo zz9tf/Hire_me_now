@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
+
 
 const Product = ({ user }) => {
   const handleSubmit = async (e) => {
@@ -32,8 +34,17 @@ const Product = ({ user }) => {
     <section>
       <div className="product">
         <div className="description">
-          <h5>App usage</h5>
-          <h5>$10.00</h5>
+          <h5 style={{ color: "#565656", marginTop:"30px", marginBottom:"40px"}}
+          >Hi, <span style={{ color: "#4cb4b4", fontWeight: "bold" }}>{user.name}</span></h5>
+          <h3>You have {user.usageCount} times left to use this app</h3>
+          
+          <h5
+            style={{color:"#4cb4b4", fontSize:"12pt", marginBottom:"5px"}}
+          >Wanna more usage?</h5>
+          <h5
+            style={{ color: "#565656", fontSize: "18pt" }}>Pay
+            <span style={{ fontWeight: "bold", fontSize: "20pt" }}> $3.00</span> for
+            <span style={{fontWeight:"bold", fontSize:"20pt"}}> 3</span> more times</h5>
         </div>
       </div>
       <form onSubmit={handleSubmit}>
@@ -50,8 +61,10 @@ const Message = ({ message }) => (
   </section>
 )
 
-export default function ProductDisplay({ user }) {
+export default function ProductDisplay() {
   const [message, setMessage] = useState('')
+  const user = useSelector((state) => state.google.profile)
+
 
   useEffect(() => {
     // Check to see if this is a redirect back from Checkout
@@ -69,4 +82,5 @@ export default function ProductDisplay({ user }) {
   }, [])
 
   return message ? <Message message={message} /> : <Product user={user} />
+
 }

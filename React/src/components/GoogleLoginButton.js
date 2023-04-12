@@ -10,10 +10,14 @@ import {
   setProfile,
   logout,
   postUserData,
+  fetchUserProfile,
 } from '../components/googleActions'
 import { persistor } from './store'
+import { useNavigate } from 'react-router-dom'
+
 
 function GoogleLoginButton({ onLogin }) {
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const user = useSelector((state) => state.google.user)
   const profile = useSelector((state) => state.google.profile)
@@ -43,6 +47,7 @@ function GoogleLoginButton({ onLogin }) {
           console.log('what is res?', res.data)
           dispatch(setProfile(res.data))
           dispatch(postUserData(res.data))
+          dispatch(fetchUserProfile(res.data.id)) 
           console.log('profile:', profile)
           onLogin()
         })
@@ -54,6 +59,7 @@ function GoogleLoginButton({ onLogin }) {
     await persistor.purge() // wait for persisted state to be cleared
     googleLogout()
     dispatch(logout())
+    navigate('/')
   }
 
   return (
@@ -88,11 +94,11 @@ function GoogleLoginButton({ onLogin }) {
             Hi, <span className="userName">{profile.name}</span>
           </Dropdown.Toggle>
 
-        <Dropdown.Menu className="logoutButton"
+        <Dropdown.Menu className="logoutButton userDropdown navbar__account"
           style={{
             border: "none",
             color: "#565656",
-            backgroundColor:"rgba(212, 244, 239, 0.5)"}}>
+            backgroundColor:"rgb(236, 248, 247, 0.75)"}}>
             <Dropdown.Item href="/account"
               style={{
                 fontSize: "13px",
@@ -100,6 +106,14 @@ function GoogleLoginButton({ onLogin }) {
                 color: "#565656",
               }}>
               Account Profile
+            </Dropdown.Item>
+            <Dropdown.Item href="/contact"
+                style={{
+                  fontSize: "13px",
+                  fontWeight: "bold",
+                  color: "#565656",
+                }}>
+                Contact Us
             </Dropdown.Item>
             <Dropdown.Item onClick={logOut}
               style={{

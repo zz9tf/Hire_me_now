@@ -55,7 +55,7 @@
     margin-right: -150px; 
   }
   
-  .navbar__contact a {
+  .navbar__service a {
     background-color: transparent;
     color: #565656;
     font-weight:bold;
@@ -80,13 +80,19 @@
 
 
 .navbar__login a:hover,
-.navbar__contact a:hover,
 .navbar__donate a:hover,
 .navbar__account a:hover {
   color:#4cb4b4;
   text-decoration: underline;
   text-decoration-thickness: 3px;
   text-decoration-color: rgba(212, 244, 239, 1);
+}
+
+.navbar__service a:hover {
+  color:#4cb4b4;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #4cb4b4;
 }
 
 .coffeeImage a {
@@ -107,4 +113,17 @@
     cursor: pointer;
     margin-right:50px;
     text-decoration: none;
+  }
+  .userDropdown {
+    color:white;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .userDropdown:hover {
+    color: #4cb4b4;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-decoration-color: rgba(212, 244, 239, 1);
   }
