@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+import requests
 import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,7 +31,8 @@ SECRET_KEY = env('DjangoSecretKey')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+print("Allowed: ", str(ALLOWED_HOSTS))
 
 
 # Application definition

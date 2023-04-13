@@ -2,7 +2,7 @@ FROM node:19-slim
 
 WORKDIR /react
 
-COPY package.json .
+COPY package*.json .
 
 RUN npm install
 

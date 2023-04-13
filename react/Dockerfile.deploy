@@ -1,0 +1,14 @@
+# stage 1
+FROM node:19-slim as build
+
+WORKDIR /react
+COPY package*.json .
+RUN npm install
+COPY . .
+RUN npm ci --loglevel verbose
+RUN npm run build
+
+FROM nginx:stable-alpine-slim
+COPY /react/build /usr/share/nginx/html
+EXPOSE 3000
+CMD ["nginx", "-g", "daemon off;"]
