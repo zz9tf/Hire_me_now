@@ -8,11 +8,8 @@ COPY package*.json .
 
 RUN npm install
 
-RUN npm install http-errors
-
 COPY . .
 
-RUN npm ci --loglevel verbose
 EXPOSE 9000
 
 CMD ["npm", "start"]
