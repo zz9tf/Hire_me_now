@@ -1,12 +1,11 @@
 version: '3'
 
 services:
-  # Develop mode
   react:
     image: zz9tf/react
     build: 
       context: ./react
-      dockerfile: Dockerfile${AGU1:+.deploy}
+      dockerfile: Dockerfile.${STATUS}
     ports:
       - "80:80"
     volumes:
