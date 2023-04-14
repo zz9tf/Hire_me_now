@@ -6,9 +6,9 @@ services:
     image: zz9tf/react
     build: 
       context: ./react
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile${AGU1:+.deploy}
     ports:
-      - "3000:3000"
+      - "80:80"
     volumes:
       - ./react:/react
     container_name: react_container

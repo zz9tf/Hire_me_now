@@ -32,7 +32,6 @@ SECRET_KEY = env('DjangoSecretKey')
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-print("Allowed: ", str(ALLOWED_HOSTS))
 
 
 # Application definition

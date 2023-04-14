@@ -8,6 +8,8 @@ COPY package*.json .
 
 RUN npm install
 
+RUN npm install http-errors
+
 COPY . .
 
 RUN npm ci --loglevel verbose
