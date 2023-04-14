@@ -19,8 +19,9 @@ else
         docker rmi -f $(docker images -aq)
         docker-compose up
     elif [[ $1 == "--deploy" || $1 == "-d" ]]; then
+        cd react && npm install && npm run build
         AGU1=deploy docker-compose up
-        
+
     elif [[ $1 == "--clear" || $1 == "-c" ]]; then
         docker rm -vf $(docker ps -aq)
         docker rmi -f $(docker images -aq)
