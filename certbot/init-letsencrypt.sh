@@ -5,7 +5,10 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=(hiremenow-ai.com www.hiremenow-ai.com)
+# Go to the docker-compose folder
+cd ..
+
+domains=hiremenow-ai.com
 rsa_key_size=4096
 data_path="./certbot"
 email="Zheng_5732021823@outlook.com" # Adding a valid address is strongly recommended
@@ -37,7 +40,6 @@ STATUS=deploy docker-compose run --rm --entrypoint "\
     -subj '/CN=localhost'" certbot
 echo
 
-
 echo "### Starting nginx ..."
 STATUS=deploy docker-compose up --force-recreate -d react
 echo
@@ -48,7 +50,6 @@ STATUS=deploy docker-compose run --rm --entrypoint "\
   rm -Rf /etc/letsencrypt/archive/$domains && \
   rm -Rf /etc/letsencrypt/renewal/$domains.conf" certbot
 echo
-
 
 echo "### Requesting Let's Encrypt certificate for $domains ..."
 #Join $domains to -d args
