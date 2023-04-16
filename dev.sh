@@ -13,11 +13,19 @@ elif [[ $1 == "express" ]]; then
 
 elif [[ $1 == "--deploy" || $1 == "-d" ]]; then
     docker rm -vf $(docker ps -aq)
+    docker system prune -a -f
+    git remote prune origin
+    rm -rf ./certbot/conf/*
+    cd certbot && ./init-letsencrypt.sh && cd ..
     STATUS=deploy docker-compose up
+
+elif [[ $1 == "--build" || $1 == "-b" ]]; then
+    cd react && npm run build
 
 elif [[ $1 == "--clear" || $1 == "-c" ]]; then
     docker rm -vf $(docker ps -aq)
     docker system prune -a -f
+    # rm -rf ./certbot/conf/*
     git remote prune origin
 
 elif [[ $1 == "--rebuild" || $1 == "-r" ]]; then

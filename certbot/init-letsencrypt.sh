@@ -8,18 +8,19 @@ fi
 # Go to the docker-compose folder
 cd ..
 
-domains=hiremenow-ai.com
+domains=(hiremenow-ai.com www.hirenewnw-ai.com)
+domain_conf=hiremenow-ai.com
 rsa_key_size=4096
 data_path="./certbot"
 email="Zheng_5732021823@outlook.com" # Adding a valid address is strongly recommended
 staging=1 # Set to 1 if you're testing your setup to avoid hitting request limits, otherwise 0.
 
-if [ -d "$data_path" ]; then
-  read -p "Existing data found for $domains. Continue and replace existing certificate? (y/N) " decision
-  if [ "$decision" != "Y" ] && [ "$decision" != "y" ]; then
-    exit
-  fi
-fi
+# if [ -d "$data_path" ]; then
+#   read -p "Existing data found for $domains. Continue and replace existing certificate? (y/N) " decision
+#   if [ "$decision" != "Y" ] && [ "$decision" != "y" ]; then
+#     exit
+#   fi
+# fi
 
 
 if [ ! -e "$data_path/conf/options-ssl-nginx.conf" ] || [ ! -e "$data_path/conf/ssl-dhparams.pem" ]; then
@@ -77,7 +78,5 @@ STATUS=deploy docker-compose run --rm --entrypoint "\
     --force-renewal" certbot
 echo
 
-exit
-
 echo "### Reloading nginx ..."
-STATUS=deploy docker-compose exec react react -s reload
+STATUS=deploy docker-compose exec react nginx -s reload
