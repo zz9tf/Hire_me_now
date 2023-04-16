@@ -77,5 +77,7 @@ STATUS=deploy docker-compose run --rm --entrypoint "\
     --force-renewal" certbot
 echo
 
+exit
+
 echo "### Reloading nginx ..."
 STATUS=deploy docker-compose exec react react -s reload
