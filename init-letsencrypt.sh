@@ -39,7 +39,7 @@ echo
 
 
 echo "### Starting nginx ..."
-STATUS=deploy docker-compose up --force-recreate -d react
+STATUS=deploy docker-compose up --force-recreate -d zz9tf/react
 echo
 
 echo "### Deleting dummy certificate for $domains ..."
@@ -77,4 +77,4 @@ STATUS=deploy docker-compose run --rm --entrypoint "\
 echo
 
 echo "### Reloading nginx ..."
-STATUS=deploy docker-compose exec react react -s reload
+STATUS=deploy docker-compose exec react_container zz9tf/react -s reload
