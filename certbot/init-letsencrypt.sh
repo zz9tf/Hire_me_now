@@ -8,8 +8,8 @@ fi
 # Go to the docker-compose folder
 cd ..
 
-domains=(hiremenow-ai.com www.hirenewnw-ai.com)
-domain_conf=hiremenow-ai.com
+domains=hiremenow-ai.com
+
 rsa_key_size=4096
 data_path="./certbot"
 email="Zheng_5732021823@outlook.com" # Adding a valid address is strongly recommended
