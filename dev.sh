@@ -20,7 +20,7 @@ elif [[ $1 == "--deploy" || $1 == "-d" ]]; then
     echo "y" | docker builder prune --all
     rm -rf ./certbot/conf/*
     cd certbot && ./init-letsencrypt.sh && cd ..
-    docker-compose up
+    docker-compose up --build
 
 elif [[ $1 == "--build" || $1 == "-b" ]]; then
     cd react && npm run build
