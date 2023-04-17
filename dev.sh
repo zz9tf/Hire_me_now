@@ -14,9 +14,10 @@ elif [[ $1 == "express" ]]; then
 
 elif [[ $1 == "--deploy" || $1 == "-d" ]]; then
     ./do-builder.sh deploy
-    docker rm -vf $(docker ps -aq)
-    docker system prune -a -f
-    git remote prune origin
+    docker stop $(docker ps -a -q)
+    docker rm $(docker ps -a -q)
+    echo "y" | docker system prune -a
+    echo "y" | docker builder prune --all
     rm -rf ./certbot/conf/*
     cd certbot && ./init-letsencrypt.sh && cd ..
     docker-compose up
@@ -29,7 +30,6 @@ elif [[ $1 == "--clear" || $1 == "-c" ]]; then
     docker rm $(docker ps -a -q)
     echo "y" | docker system prune -a
     echo "y" | docker builder prune --all
-    # rm -rf ./certbot/conf/*
     git remote prune origin
 
 elif [[ $1 == "--rebuild" || $1 == "-r" ]]; then
