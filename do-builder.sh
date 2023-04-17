@@ -70,7 +70,7 @@ services:
       context: ./react
       dockerfile: Dockerfile.development
     ports:
-      - "3000:3000"
+      - "80:80"
     volumes:
       - ./react:/react
     container_name: react_container

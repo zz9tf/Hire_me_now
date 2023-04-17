@@ -45,6 +45,10 @@ echo "### Starting nginx ..."
 docker-compose up --force-recreate -d react
 echo
 
+if [[ $1 == "local" ]]; then
+  exit
+fi
+
 echo "### Deleting dummy certificate for $domains ..."
 docker-compose run --rm --entrypoint "\
   rm -Rf /etc/letsencrypt/live/$domains && \

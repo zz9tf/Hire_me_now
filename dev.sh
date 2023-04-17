@@ -19,7 +19,11 @@ elif [[ $1 == "--deploy" || $1 == "-d" ]]; then
     echo "y" | docker system prune -a
     echo "y" | docker builder prune --all
     rm -rf ./certbot/conf/*
-    cd certbot && ./init-letsencrypt.sh && cd ..
+    if [[ $2 == "--local" || $2 == "-l" ]]; then
+        cd certbot && ./init-letsencrypt.sh local && cd ..
+    else
+        cd certbot && ./init-letsencrypt.sh && cd ..
+    fi
     docker-compose up --build
 
 elif [[ $1 == "--build" || $1 == "-b" ]]; then
@@ -28,6 +32,7 @@ elif [[ $1 == "--build" || $1 == "-b" ]]; then
 elif [[ $1 == "--clear" || $1 == "-c" ]]; then
     docker stop $(docker ps -a -q)
     docker rm $(docker ps -a -q)
+    docker volume rm $(docker volume ls -q)
     echo "y" | docker system prune -a
     echo "y" | docker builder prune --all
     git remote prune origin
@@ -36,6 +41,7 @@ elif [[ $1 == "--rebuild" || $1 == "-r" ]]; then
     ./do-builder.sh dev
     docker stop $(docker ps -a -q)
     docker rm $(docker ps -a -q)
+    docker volume rm $(docker volume ls -q)
     echo "y" | docker system prune -a
     echo "y" | docker builder prune --all
     docker-compose up --build
