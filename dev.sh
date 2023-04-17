@@ -25,16 +25,20 @@ elif [[ $1 == "--build" || $1 == "-b" ]]; then
     cd react && npm run build
 
 elif [[ $1 == "--clear" || $1 == "-c" ]]; then
-    docker rm -vf $(docker ps -aq)
-    docker system prune -a -f
+    docker stop $(docker ps -a -q)
+    docker rm $(docker ps -a -q)
+    echo "y" | docker system prune -a
+    echo "y" | docker builder prune --all
     # rm -rf ./certbot/conf/*
     git remote prune origin
 
 elif [[ $1 == "--rebuild" || $1 == "-r" ]]; then
     ./do-builder.sh dev
-    docker rm -vf $(docker ps -aq)
-    docker system prune -a -f
-    docker-compose up  --no-deps --build -V
+    docker stop $(docker ps -a -q)
+    docker rm $(docker ps -a -q)
+    echo "y" | docker system prune -a
+    echo "y" | docker builder prune --all
+    docker-compose up --build
 
 elif [[ $1 == "--install" || $1 == "-i" ]]; then
     cd react && npm install --save

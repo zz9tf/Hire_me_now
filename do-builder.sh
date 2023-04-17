@@ -56,6 +56,7 @@ services:
     container_name: django_container
     env_file: ./django/.env
 EOF
+  echo "Deploy docker-compose.yml file generated!"
 
 elif [[ $1 == "dev" ]]; then
   cat > docker-compose.yml <<EOF
@@ -67,7 +68,7 @@ services:
     image: zz9tf/react
     build: 
       context: ./react
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.development
     ports:
       - "3000:3000"
     volumes:
@@ -99,5 +100,5 @@ services:
     container_name: django_container
     env_file: ./django/.env
 EOF
-
+  echo "Dev docker-compose.yml file generated!"
 fi
