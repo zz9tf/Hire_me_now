@@ -21,8 +21,10 @@ elif [[ $1 == "--deploy" || $1 == "-d" ]]; then
     rm -rf ./certbot/conf/*
     if [[ $2 == "--local" || $2 == "-l" ]]; then
         cd certbot && ./init-letsencrypt.sh local && cd ..
-    else
+    if [[ $2 == "--renew" || $2 == "-r" ]]; then
         cd certbot && ./init-letsencrypt.sh && cd ..
+    else
+        cd certbot && ./init-letsencrypt.sh notrenew && cd ..
     fi
     docker-compose up --build
 

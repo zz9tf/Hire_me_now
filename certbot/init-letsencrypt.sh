@@ -15,12 +15,10 @@ data_path="./certbot"
 email="Zheng_5732021823@outlook.com" # Adding a valid address is strongly recommended
 staging=0 # Set to 1 if you're testing your setup to avoid hitting request limits, otherwise 0.
 
-# if [ -d "$data_path" ]; then
-#   read -p "Existing data found for $domains. Continue and replace existing certificate? (y/N) " decision
-#   if [ "$decision" != "Y" ] && [ "$decision" != "y" ]; then
-#     exit
-#   fi
-# fi
+if [ -d "$data_path" ] && [ $1 == "notrenew" ]; then
+  echo "Existing data found for $domains. You choose not to replace the existing certificate."
+  exit
+fi
 
 
 if [ ! -e "$data_path/conf/options-ssl-nginx.conf" ] || [ ! -e "$data_path/conf/ssl-dhparams.pem" ]; then
@@ -78,8 +76,7 @@ docker-compose run --rm --entrypoint "\
     $email_arg \
     $domain_args \
     --rsa-key-size $rsa_key_size \
-    --agree-tos \
-    --force-renewal" certbot
+    --agree-tos" certbot
 echo
 
 echo "### Reloading nginx ..."
