@@ -43,6 +43,8 @@ services:
       - "9000:9000"
     volumes:
       - ./express:/express/:ro
+      - ./certbot/conf:/etc/letsencrypt:ro
+      - ./certbot/www:/var/www/certbot/:ro
     container_name: express_container
     env_file: ./express/.env
   
