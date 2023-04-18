@@ -39,8 +39,8 @@ services:
     build: 
       context: ./express
       dockerfile: Dockerfile
-    expose:
-      - "9000"
+    ports:
+      - "9000:9000"
     volumes:
       - ./express:/express/:ro
     container_name: express_container
@@ -51,8 +51,8 @@ services:
     build: 
       context: ./django
       dockerfile: Dockerfile
-    expose:
-      - "8000"
+    ports:
+      - "8000:8000"
     volumes:
       - ./django:/django/:ro
     container_name: django_container

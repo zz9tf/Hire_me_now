@@ -62,7 +62,7 @@ else
     echo ""
     echo "Usage: ./dev.sh [OPTIONS] [SERVICE] [PACKAGE]"
     echo ""
-    echo "./dev.sh                 Start all Docker containers and build them if haven't built"
+    echo "./dev.sh                 Start all Docker containers and build them if not exist"
     echo ""
     echo "OPTIONS:"
     echo "  -b, --build            Build the React app"
