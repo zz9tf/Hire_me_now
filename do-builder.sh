@@ -14,8 +14,8 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    expose:
-      - "80"
+      - "8000:8000"
+      - "9000:9000"
     volumes:
       - ./react/nginx.conf:/etc/nginx/nginx.conf/:ro
       - ./certbot/conf:/etc/letsencrypt:ro
@@ -39,8 +39,6 @@ services:
     build: 
       context: ./express
       dockerfile: Dockerfile
-    ports:
-      - "9000:9000"
     volumes:
       - ./express:/express/:ro
       - ./certbot/conf:/etc/letsencrypt:ro
@@ -53,8 +51,6 @@ services:
     build: 
       context: ./django
       dockerfile: Dockerfile
-    ports:
-      - "8000:8000"
     volumes:
       - ./django:/django/:ro
     container_name: django_container
