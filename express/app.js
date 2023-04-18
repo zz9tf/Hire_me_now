@@ -24,12 +24,19 @@ const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID)
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'jade')
 
+// Allow requests from specific domains
+const whitelist = ['https://hiremenow-ai.com', 'https://www.hiremenow-ai.com', process.env.FRONTEND_URL];
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+};
 
-app.use(
-  cors({
-    origin: process.env.FRONTEND_URL,
-  })
-)
+app.use(cors(corsOptions));
 app.use(logger('dev'))
 // app.use(express.json())
 app.use(
