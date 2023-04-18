@@ -51,7 +51,6 @@ elif [[ $1 == "--install" || $1 == "-i" ]]; then
     cd ../express && npm install --save
 
 elif [ -z "$1" ]; then
-    ./do-builder.sh dev
     docker-compose up
 
 else
@@ -62,6 +61,8 @@ else
     fi
     echo ""
     echo "Usage: ./dev.sh [OPTIONS] [SERVICE] [PACKAGE]"
+    echo ""
+    echo "./dev.sh                 Start all Docker containers and build them if haven't built"
     echo ""
     echo "OPTIONS:"
     echo "  -b, --build            Build the React app"
