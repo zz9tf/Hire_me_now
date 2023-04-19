@@ -1,10 +1,12 @@
 #!/bin/bash
 
 if [[ $1 == "django" ]]; then
-    ./do-builder.sh dev
+    ./bin/do-builder.sh dev
+    docker stop django_container
+    docker kill django_container
     source activate hire_me_now
     pip install $2
-    docker-compose up -d django
+    docker-compose up --build django
 
 elif [[ $1 == "react" ]]; then
     cd react && npm install $2 --save
@@ -13,7 +15,7 @@ elif [[ $1 == "express" ]]; then
     cd express && npm install $2 --save
 
 elif [[ $1 == "--deploy" || $1 == "-d" ]]; then
-    ./do-builder.sh deploy
+    ./bin/do-builder.sh deploy
     docker stop $(docker ps -a -q)
     docker rm $(docker ps -a -q)
     echo "y" | docker system prune -a
@@ -42,20 +44,31 @@ elif [[ $1 == "--clear" || $1 == "-c" ]]; then
     git remote prune origin
 
 elif [[ $1 == "--rebuild" || $1 == "-r" ]]; then
-    ./do-builder.sh dev
+    ./bin/do-builder.sh dev
     docker stop $(docker ps -a -q)
     docker rm $(docker ps -a -q)
     docker volume rm $(docker volume ls -q)
     echo "y" | docker system prune -a
     echo "y" | docker builder prune --all
     docker-compose up --build
+    echo "Notice! If you run this locally, you may need to run:"
+    echo ""
+    echo "      ./dev.sh ngrok"
+    echo ""
 
 elif [[ $1 == "--install" || $1 == "-i" ]]; then
     cd react && npm install --save
     cd ../express && npm install --save
 
+elif [[ $1 == "ngrok"  ]]; then
+    ngrok http 9000
+
 elif [ -z "$1" ]; then
     docker-compose up
+    echo "Notice! If you run this locally, you may need to run:"
+    echo ""
+    echo "      ./dev.sh ngrok"
+    echo ""
 
 else
     if [[ $1 != "--help" && $1 != "-h" ]]; then
@@ -78,7 +91,8 @@ else
     echo ""
     echo "Service and package installation:"
     echo "  django  <package>       Install a Django package with pip and restart the Django container"
-    echo "  react   <package>        Install an npm package for React"
-    echo "  express <package>      Install an npm package for Express"
+    echo "  react   <package>       Install an npm package for React"
+    echo "  express <package>       Install an npm package for Express"
+    echo "  ngrok                   Start a ngrok service"
     echo ""
 fi
