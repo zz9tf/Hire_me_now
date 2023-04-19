@@ -7,6 +7,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 const User = require('../models/User')
 
 router.post('/create-checkout-session', async (req, res) => {
+  console.log(req.body);
   const { googleId } = req.body
   try {
     console.log('googleId before creating session:', googleId)
@@ -15,7 +16,7 @@ router.post('/create-checkout-session', async (req, res) => {
       line_items: [
         {
           // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-          price: 'price_1MvRpyGpioqUIppnLp47tyT6',
+          price: 'price_1MyRIMCGa3oPU1r9faS1D7qR',
           quantity: 1,
         },
       ],
@@ -54,7 +55,6 @@ router.post(
       res.status(400).send(`Webhook Error: ${err.message}`)
       return
     }
-
     console.log(`Received event: ${event.type}`) // Add this line
 
     if (event.type === 'checkout.session.completed') {

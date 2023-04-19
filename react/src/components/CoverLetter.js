@@ -87,7 +87,7 @@ class CoverLetter extends Component {
       const response = await axios.put(
         `${process.env.REACT_APP_BACKEND_URL}/api/user/decrementUsageCount`,
         {
-          googleId: profile.id,
+          googleId: profile.googleId,
         }
       )
       console.log(response.data)

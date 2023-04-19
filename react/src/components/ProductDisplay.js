@@ -8,7 +8,7 @@ const Product = ({ user }) => {
 
     try {
       console.log('USER in frontend:', user)
-      console.log('googleId in frontend:', user.id)
+      console.log('googleId in frontend:', user.googleId)
       const response = await fetch(
         `${process.env.REACT_APP_BACKEND_URL}/api/payment/create-checkout-session`,
         {
@@ -16,7 +16,7 @@ const Product = ({ user }) => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ googleId: user.id }),
+          body: JSON.stringify({ googleId: user.googleId }),
         }
       )
 

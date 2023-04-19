@@ -11,6 +11,7 @@ const UserSchema = new mongoose.Schema({
   address: String,
   workExperience: String,
   createdAt: { type: Date, default: Date.now },
+  usingDatabase: {type: Boolean, default: true}
 })
 
 module.exports = mongoose.model('User', UserSchema)

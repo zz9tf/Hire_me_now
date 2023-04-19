@@ -21,9 +21,16 @@ function Account() {
     setIsEditing(true)
   }
   useEffect(() => {
+    
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`/api/user/${user.googleId}`)
+        console.log("Account user:\n" + JSON.stringify(user));
+        var response;
+        if (user.usingDatabase == true){
+          response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/user/${user.googleId}`)
+        } else {
+          response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/user/${user.id}`)
+        }
         const fetchedUser = response.data
         setName(fetchedUser.name)
         setContactInfo(fetchedUser.contactInfo)

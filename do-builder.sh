@@ -43,7 +43,8 @@ services:
       - ./certbot/www:/var/www/certbot/:ro
     container_name: express_container
     env_file: ./express/.env
-    expose: 9000
+    expose: 
+      - 9000
   
   django:
     image: zz9tf/django
@@ -52,9 +53,12 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./django:/django/:ro
+      - ./certbot/conf:/etc/letsencrypt:ro
+      - ./certbot/www:/var/www/certbot/:ro
     container_name: django_container
     env_file: ./django/.env
-    expose: 8000
+    expose: 
+      - 8000
     
 EOF
   echo "Deploy docker-compose.yml file generated!"
@@ -71,7 +75,7 @@ services:
       context: ./react
       dockerfile: Dockerfile.development
     ports:
-      - "80:80"
+      - "3000:3000"
     volumes:
       - ./react:/react
     container_name: react_container
