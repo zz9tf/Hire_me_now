@@ -40,7 +40,7 @@ docker-compose run --rm --entrypoint "\
 echo
 
 echo "### Starting nginx ..."
-docker-compose up --build
+docker-compose up -d
 echo
 
 if [[ $1 == "local" ]]; then

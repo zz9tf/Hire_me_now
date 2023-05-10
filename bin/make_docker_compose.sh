@@ -30,6 +30,8 @@ services:
     env_file: ./react/.env
     depends_on:
       - certbot
+      - express
+      - django
     # command: "/bin/sh -c 'while :; do sleep 6h & wait 6676{!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
 
   express:
