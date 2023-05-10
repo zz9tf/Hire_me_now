@@ -30,7 +30,7 @@ elif [[ $1 == "--deploy" || $1 == "-d" ]]; then
         cd certbot && ./init-letsencrypt.sh notrenew && cd ..
     fi
 
-    docker-compose up --build
+    # docker-compose up --build
 
 elif [[ $1 == "--build" || $1 == "-b" ]]; then
     cd react && npm run build

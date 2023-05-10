@@ -40,7 +40,7 @@ docker-compose run --rm --entrypoint "\
 echo
 
 echo "### Starting nginx ..."
-docker-compose up --force-recreate -d react
+docker-compose up --build
 echo
 
 if [[ $1 == "local" ]]; then
