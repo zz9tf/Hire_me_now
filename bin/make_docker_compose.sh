@@ -81,7 +81,7 @@ services:
       context: ./react
       dockerfile: Dockerfile.development
     expose:
-      - 3000
+      - 80
     volumes:
       - ./react:/react
     container_name: react_inner_container
