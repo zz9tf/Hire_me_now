@@ -17,7 +17,6 @@ var paymentRouter = require('./routes/payment')
 var userRoutes = require('./routes/user')
 
 var app = express()
-const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))

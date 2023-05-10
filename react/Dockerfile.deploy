@@ -14,6 +14,6 @@ FROM nginx:latest
 RUN rm -rf /user/share/nginx/html/*
 COPY build /usr/share/nginx/html
 
-EXPOSE 80 443
+EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
