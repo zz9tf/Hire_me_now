@@ -23,18 +23,19 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'jade')
 
 // Allow requests from specific domains
-const whitelist = [process.env.FRONTEND_URL];
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (whitelist.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
-};
+// const whitelist = [process.env.FRONTEND_URL];
+// const corsOptions = {
+//   origin: (origin, callback) => {
+//     if (whitelist.indexOf(origin) !== -1 || !origin) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   }
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+
 app.use(logger('dev'))
 // app.use(express.json())
 app.use(
