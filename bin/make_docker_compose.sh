@@ -20,13 +20,12 @@ services:
       context: ./react
       dockerfile: Dockerfile.deploy
     ports:
-      - 80:80
       - 443:443
     volumes:
       - ./nginx/deploy.conf:/etc/nginx/nginx.conf/:ro
       - ./certbot/conf:/etc/letsencrypt:ro
       - ./certbot/www:/var/www/certbot/:ro
-      - ./nginx/log:/var/log/nginx:rw
+      - ./nginx/log:/var/log/nginx
     container_name: react_container
     env_file: ./react/.env
     depends_on:
