@@ -70,6 +70,14 @@ esac
 # Enable staging mode if needed
 if [ $staging != "0" ]; then staging_arg="--staging"; fi
 
+read -p "Do you successfully start your react? (y/n) " choice
+if [[ "$choice" == "y" || "$choice" == "yes" ]]; then
+    echo "Continue!"
+else
+    echo "Something wrong with nginx react container."
+    exit 1
+fi
+
 docker-compose run --rm --entrypoint "\
   certbot certonly --webroot -w /var/www/certbot \
     $staging_arg \
