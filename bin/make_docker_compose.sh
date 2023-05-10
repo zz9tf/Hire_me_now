@@ -73,7 +73,7 @@ services:
       - "80:80"
     volumes:
       - ./nginx/develop_nginx.conf:/etc/nginx/nginx.conf/:ro
-    container_name: nginx_container
+    container_name: react_container
 
   react:
     image: zz9tf/react
@@ -84,7 +84,7 @@ services:
       - 3000
     volumes:
       - ./react:/react
-    container_name: react_container
+    container_name: react_inner_container
     env_file: ./react/.env
 
   express:
