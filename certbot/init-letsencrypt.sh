@@ -39,12 +39,14 @@ docker-compose run --rm --entrypoint "\
     -subj '/CN=localhost'" certbot
 echo
 
-echo "### Starting nginx ..."
-docker-compose up -d
-echo
 
 if [[ $1 == "local" ]]; then
+  docker-compose up --build
   exit
+else
+  echo "### Starting nginx ..."
+  docker-compose up -d
+  echo
 fi
 
 echo "### Deleting dummy certificate for $domains ..."
@@ -89,4 +91,6 @@ docker-compose run --rm --entrypoint "\
 echo
 
 echo "### Reloading nginx ..."
-docker-compose exec react nginx -s reload
+docker kill $(docker ps -q)
+# docker-compose exec react nginx -s reload
+docker-compose up

@@ -20,6 +20,7 @@ services:
       context: ./react
       dockerfile: Dockerfile.deploy
     ports:
+      - 80:80
       - 443:443
     volumes:
       - ./nginx/deploy.conf:/etc/nginx/nginx.conf/:ro
