@@ -8,18 +8,25 @@ fi
 # Go to the docker-compose folder
 cd ..
 
+# When you have an effective certificate
+if [ -d "$data_path" ] && [ $1 == "notrenew" ]; then
+  echo "Existing data found for $domains. You choose not to replace the existing certificate."
+  docker-compose up --force-recreate -d react
+  docker-compose run --rm --entrypoint "\
+    $staging_arg \
+    $email_arg \
+    $domain_args \
+    --rsa-key-size $rsa_key_size \
+    --agree-tos" certbot
+  exit
+fi
+
 domains=hiremenow-ai.com
 
 rsa_key_size=4096
 data_path="./certbot"
 email="Zheng_5732021823@outlook.com" # Adding a valid address is strongly recommended
 staging=0 # Set to 1 if you're testing your setup to avoid hitting request limits, otherwise 0.
-
-if [ -d "$data_path" ] && [ $1 == "notrenew" ]; then
-  echo "Existing data found for $domains. You choose not to replace the existing certificate."
-  exit
-fi
-
 
 if [ ! -e "$data_path/conf/options-ssl-nginx.conf" ] || [ ! -e "$data_path/conf/ssl-dhparams.pem" ]; then
   echo "### Downloading recommended TLS parameters ..."
@@ -41,13 +48,12 @@ echo
 
 
 if [[ $1 == "local" ]]; then
-  docker-compose up --build
   exit
-else
-  echo "### Starting nginx ..."
-  docker-compose up -d
-  echo
 fi
+
+echo "### Starting nginx ..."
+docker-compose up --force-recreate -d react
+echo
 
 echo "### Deleting dummy certificate for $domains ..."
 docker-compose run --rm --entrypoint "\
@@ -82,15 +88,11 @@ fi
 
 docker-compose run --rm --entrypoint "\
   certbot certonly --webroot -w /var/www/certbot \
-    $staging_arg \
-    $email_arg \
-    $domain_args \
-    --rsa-key-size $rsa_key_size \
-    --agree-tos
-    --force-renewal" certbot
-echo
+  $staging_arg \
+  $email_arg \
+  $domain_args \
+  --rsa-key-size $rsa_key_size \
+  --agree-tos" certbot
 
 echo "### Reloading nginx ..."
-docker kill $(docker ps -q)
-# docker-compose exec react nginx -s reload
-docker-compose up
+docker-compose exec react nginx -s reload
