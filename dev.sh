@@ -20,14 +20,11 @@ elif [[ $1 == "--deploy" || $1 == "-d" ]]; then
     docker rm $(docker ps -a -q)
     echo "y" | docker system prune -a
     echo "y" | docker builder prune --all
-    rm -rf ./certbot/conf/*
     
     if [[ $2 == "--local" || $2 == "-l" ]]; then
         cd certbot && ./init-letsencrypt.sh local && cd ..
     elif [[ $2 == "--renew" || $2 == "-r" ]]; then
         cd certbot && ./init-letsencrypt.sh && cd ..
-    else
-        cd certbot && ./init-letsencrypt.sh notrenew && cd ..
     fi
 
     docker-compose up --build

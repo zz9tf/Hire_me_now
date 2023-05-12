@@ -8,19 +8,6 @@ fi
 # Go to the docker-compose folder
 cd ..
 
-# When you have an effective certificate
-if [ -d "$data_path" ] && [ $1 == "notrenew" ]; then
-  echo "Existing data found for $domains. You choose not to replace the existing certificate."
-  docker-compose up --force-recreate -d react
-  docker-compose run --rm --entrypoint "\
-    $staging_arg \
-    $email_arg \
-    $domain_args \
-    --rsa-key-size $rsa_key_size \
-    --agree-tos" certbot
-  exit
-fi
-
 domains=hiremenow-ai.com
 
 rsa_key_size=4096
@@ -78,6 +65,7 @@ esac
 # Enable staging mode if needed
 if [ $staging != "0" ]; then staging_arg="--staging"; fi
 
+# Verify if your website can be connected with http
 read -p "Do you successfully start your react? (y/n) " choice
 if [[ "$choice" == "y" || "$choice" == "yes" ]]; then
     echo "Continue!"
@@ -92,7 +80,8 @@ docker-compose run --rm --entrypoint "\
   $email_arg \
   $domain_args \
   --rsa-key-size $rsa_key_size \
-  --agree-tos" certbot
+  --agree-tos
+  --force-renewal" certbot
 
 echo "### Reloading nginx ..."
 docker-compose exec react nginx -s reload
