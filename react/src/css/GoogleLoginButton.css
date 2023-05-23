@@ -1,0 +1,75 @@
+.loginButton {
+  
+  display: inline-block;
+  color: #565656;
+  width: 100px;
+  background-color: rgba(255, 255, 255, 0);
+  border:white;
+  /* box-shadow: 1px 1px 1px grey; */
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  padding: 7px 0;
+  margin-top: -50px;
+  margin-right: 200px;
+}
+
+
+.logoutButton {
+  display: inline-block;
+  color: #565656;
+  width: 100px;
+  background-color: rgba(255, 255, 255, 0);
+  border:white;
+  /* box-shadow: 1px 1px 1px grey; */
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  padding: 7px 0;
+  margin-top: -50px;
+  margin-right: 200px;
+}
+
+.loginButton:hover,
+.logoutButton:hover {
+  /* color:#4cb4b4; */
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #4cb4b4;
+}
+
+.userName {
+  color: #4cb4b4;
+}
+
+.userDropdown {
+  color:white;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.userDropdown:hover {
+  color: #4cb4b4;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-decoration-color: rgba(212, 244, 239, 1);
+}
+
+.navbar__account a {
+color:#4cb4b4;
+text-decoration: underline;
+text-decoration-thickness: 3px;
+text-decoration-color: rgba(212, 244, 239, 1);
+}
+
+.navbar__account a:hover {
+color:#4cb4b4;
+text-decoration: underline;
+text-decoration-thickness: 2px;
+text-decoration-color: #4cb4b4;
+}

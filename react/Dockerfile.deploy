@@ -1,0 +1,19 @@
+# # Stage 1: Install dependencies and build app
+# FROM node:19-slim as dependencies
+
+# WORKDIR /react
+# COPY package*.json .
+# RUN npm install
+# COPY . .
+# RUN npm run build
+
+# Stage 2: Serve app with nginx
+FROM nginx:latest
+
+# COPY --from=dependencies /react/build /usr/share/nginx/html
+RUN rm -rf /user/share/nginx/html/*
+COPY build /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

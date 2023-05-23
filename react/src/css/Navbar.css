@@ -1,0 +1,129 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height:5rem;
+  /* padding: 10px; */
+  background-color: white;
+  color: #fff;
+  box-shadow: 0 0.5px 5px #d8d8d8;
+  /* margin-bottom: 2rem; */
+}
+
+.navbar__left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__logo img {
+  height: 30px;
+  margin-left: 40px;
+  margin-top: 2px;
+}
+
+.navbar__beta button {
+  background-color: #fff;
+  color: rgba(76, 180, 180, 1);
+  padding: 0px 4px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-left: 2px;
+  border-color: #d4f4ef;
+  cursor: pointer;
+}
+
+.navbar__right {
+  margin-right: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+/* /* .navbar__login a {
+    background-color: #fff;
+    color: #565656;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight:bold;
+    margin-right: 15px;
+    cursor: pointer;
+    text-decoration: none; */
+
+
+  .navbar__login{
+    margin-right: -150px; 
+  }
+  
+  .navbar__service a {
+    background-color: transparent;
+    color: #565656;
+    font-weight:bold;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right:50px;
+    text-decoration: none;
+  }
+
+  .navbar__donate a {
+    background-color: transparent;
+    color: #565656;
+    font-weight:bold;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right:50px;
+    margin-left:10px;
+    text-decoration: none;
+  }
+
+
+.navbar__login a:hover,
+.navbar__donate a:hover,
+.navbar__account a:hover {
+  color:#4cb4b4;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-decoration-color: rgba(212, 244, 239, 1);
+}
+
+.navbar__service a:hover {
+  color:#4cb4b4;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #4cb4b4;
+}
+
+.coffeeImage a {
+  height: 2vh;
+  box-shadow: none;
+  border: none;
+  margin-right: 10px;
+  /* vertical-align: middle; */
+}
+
+
+  .navbar__account a {
+    background-color: transparent;
+    color: #565656;
+    font-weight:bold;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right:50px;
+    text-decoration: none;
+  }
+  .userDropdown {
+    color:white;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .userDropdown:hover {
+    color: #4cb4b4;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-decoration-color: rgba(212, 244, 239, 1);
+  }

@@ -1,0 +1,91 @@
+.carousel-slide {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .image-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    justify-content: flex-start;
+    /* align-items: center; */
+    align-content: flex-start;
+  }
+  
+  .slider-image {
+    position: relative;
+    width: 75%;
+    left: 10px;
+    top: 60px;
+  }
+  
+  .carousel-caption-container {
+    width: 80%;
+    padding-right: 120px;
+  }
+  
+  .caption-right {
+    padding-top: 25px;
+    width: 100%;
+    text-align: left;
+
+  }
+
+  .caption-right h3{
+    font-weight:bold;
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #4CB4B4;
+  }
+
+  .caption-right p {
+    margin-bottom:45px;
+  }
+
+  .caption-right button {
+    background-color: white;
+    border:solid 2pt rgba(116, 82, 255, 1);
+    color:rgba(116, 82, 255, 1);
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 0.2rem 2rem 0.2rem 2rem;
+    /* height:35px; */
+    font-size:19px;
+  }
+
+.caption-right button:hover{
+    background-color: rgba(116, 82, 255, 1);
+    color:white;
+  }
+
+.buttonDescription {
+  font-size: 10pt;
+  /* font-weight: bold; */
+  font-weight: 500;
+  margin-top: 14px;
+  color:rgb(105, 105, 105);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  filter: invert(30%); /* This will make the arrows white or any desired color */
+}
+
+/* If you want to change the color of the arrow when hovering */
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  filter: invert(70%); /* This will make the arrows a lighter color (e.g., light gray) when hovering */
+}
+
+.carousel-control-prev-icon::before,
+.carousel-control-next-icon::before {
+  color: #4CB4B4; /* Set the desired color for the arrow icons */
+}
+  
+.carousel-control-prev:hover .carousel-control-prev-icon::before,
+.carousel-control-next:hover .carousel-control-next-icon::before {
+  color: white; /* Set the desired color for the arrow icons when hovering */
+}
+
+  

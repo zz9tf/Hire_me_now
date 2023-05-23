@@ -1,0 +1,126 @@
+.contact--container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* center horizontally */
+  align-items: center;
+  flex-direction: column; /* align vertically */
+  min-height: 100vh;
+  margin-top: -80px;
+  padding:3rem
+  
+}
+
+.title {
+  text-align: center;
+  padding-top: 2rem; /* add some space between the title and canvas */
+}
+
+.canvas {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;
+  width: 60%;
+  height: 100%;
+  /* background-color: #f5f5f5;  */
+  border-radius: 5px;
+  box-shadow: 0 2px 4px #d5d4d8;
+  background:url("../img/coverletter_icon.png") no-repeat 15rem bottom / 200px , 
+  url("../img/coverletter_icon.png") no-repeat 20rem 13rem / 130px,
+  #ecf5f6;; 
+}
+
+.left-canvas {
+  margin-left: 30px;
+}
+
+.contact--intro{
+    color:#4cb4b4;
+}
+
+.contact-medium{
+    margin-top: 150px;
+    font-size: 12px;
+    margin-bottom: 50px;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+}
+
+.social-icons a {
+  width: 5px;
+  height: 5px;
+  color: #4cb4b4;
+}
+
+.right-canvas {
+  background-color: white; /* add a background color to the right part of the canvas */
+  padding-left: 2rem;
+  flex: 1;
+}
+
+.contact--column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+  width: 100%; /* make the columns take the full width */
+}
+
+.contact--row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 1rem; 
+}
+
+.contact--input {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  flex-basis: 48%;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 0.5px 1px #4cb4b4;
+}
+
+.contact--row > * {
+  margin-right: 2rem;
+}
+
+.contact--message {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #eaeaea;
+  font-size: 15px;
+  box-shadow: 0 1px 4px #4cb4b4; /* add box-shadow */
+}
+
+.contact--button {
+  background-color: #4cb4b4;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 50px;
+}
+
+.contact-form button:hover {
+  background-color: white;
+  color: #4cb4b4;
+  border: 1px solid #4cb4b4;
+}
+
+@media (max-width: 768px) {
+  .canvas {
+    width: 100%;
+  }
+}
