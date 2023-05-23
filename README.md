@@ -16,11 +16,11 @@ Our platform is designed to help job seekers stand out in a competitive job mark
   5. Personalization: Our platform personalizes the tools and resources based on your input and behavior. As you interact more with the website, your results become more tailored and effective, ensuring a personalized job search experience.
 
 ### Technologies Stack
-- Front-end: HTML, CSS, JavaScript, React.js
-- Back-end: Python, Django
+- Front-end: HTML, CSS, JavaScript, React
+- Back-end: Node.js(for modern application operation), Django(with OpenAI)
 - Database: Mongodb
 - External APIs: Google Authentication, Stripe API
-- Deployment: AWS EC2, Docker
+- Deployment: AWS EC2, AWS Route 53, Docker
 
 # Getting Started
 
