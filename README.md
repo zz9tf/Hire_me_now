@@ -1,4 +1,4 @@
-# ![image](https://github.com/zz9tf/hire_me_now/assets/77183284/d29fa705-a0d9-4dd4-a67b-7fd60cc424ac)
+# ![image](https://github.com/zz9tf/hire_me_now/blob/main/react/src/logoGroup.png)
 
 This project now is [alive](https://hiremenow-ai.com/) online!
 
