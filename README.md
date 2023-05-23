@@ -25,4 +25,4 @@ Our platform is designed to help job seekers stand out in a competitive job mark
 # Getting Started
 
 ### License
-This project is licensed under the [MIT License](/LICENSE). Please refer to the LICENSE file for more details.
+This project is licensed under the [Mozilla License](/LICENSE). Please refer to the LICENSE file for more details.
